@@ -9,6 +9,7 @@ import os
 import time
 import warnings
 import numpy as np
+import pandas as pd
 from utils.dtw_metric import dtw, accelerated_dtw
 from utils.augmentation import run_augmentation, run_augmentation_single
 
@@ -221,9 +222,9 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                     if test_data.scale and self.args.inverse:
                         shape = input.shape
                         input = test_data.inverse_transform(input.reshape(shape[0] * shape[1], -1)).reshape(shape)
-                    gt = np.concatenate((input[0, :, -1], true[0, :, -1]), axis=0)
-                    pd = np.concatenate((input[0, :, -1], pred[0, :, -1]), axis=0)
-                    visual(gt, pd, os.path.join(folder_path, str(i) + '.pdf'))
+                    ground_truth = np.concatenate((input[0, :, -1], true[0, :, -1]), axis=0)
+                    prediction = np.concatenate((input[0, :, -1], pred[0, :, -1]), axis=0)
+                    visual(ground_truth, prediction, os.path.join(folder_path, str(i) + '.pdf'))
 
         preds = np.concatenate(preds, axis=0)
         trues = np.concatenate(trues, axis=0)
@@ -264,5 +265,29 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         np.save(folder_path + 'metrics.npy', np.array([mae, mse, rmse, mape, mspe]))
         np.save(folder_path + 'pred.npy', preds)
         np.save(folder_path + 'true.npy', trues)
+
+        
+        pd.DataFrame({
+            "mae": [mae],
+            "mse": [mse],
+            "rmse": [rmse],
+            "mape": [mape],
+            "mspe": [mspe]
+        }).to_csv(f"{folder_path}_metrics.csv", index=False)
+
+        def get_preds_vs_true_by_cutoff_dataframe(preds, trues):
+
+            list_of_preds_cutoffs = []
+
+            for i in range(len(preds)):
+                df = pd.concat([pd.Series(data=preds[i].squeeze(), name="preds"), pd.Series(data=trues[i].squeeze(), name="true")], axis=1)
+                df["cutoff_index"] = i
+                list_of_preds_cutoffs += [df]
+
+            return pd.concat(list_of_preds_cutoffs)
+
+
+        get_preds_vs_true_by_cutoff_dataframe(preds, trues).to_csv(f"{folder_path}preds_vs_trues.csv", index=False)
+
 
         return
