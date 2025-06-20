@@ -7,7 +7,7 @@
         "des": "test",
         "data": {
             "name": "ETTh1",
-            "root_path": "./data/ETT/",
+            "root_path": "./dataset/ETT-small/",
             "data_path": "ETTh1.csv",
             "features": "MS",
             "target": "OT",

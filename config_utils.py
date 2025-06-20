@@ -81,11 +81,11 @@ def load_exp_configs(config_file_path):
     exp_configs = []
 
     if config_file_path.endswith(".yaml"):
-        loaded_yaml_configs = load_configs_from_yaml('ETT_exp_configs.yaml')
+        loaded_yaml_configs = load_configs_from_yaml(config_file_path)
         for i, config in enumerate(loaded_yaml_configs):
             exp_configs += [config]
     elif config_file_path.endswith(".json"):
-        loaded_json_configs = load_configs_from_json('ETT_exp_configs.json')
+        loaded_json_configs = load_configs_from_json(config_file_path)
         for i, config in enumerate(loaded_json_configs):
             exp_configs += [config]
     else:

@@ -2,6 +2,7 @@ from data_provider.data_loader import Dataset_ETT_hour, Dataset_ETT_minute, Data
     MSLSegLoader, SMAPSegLoader, SMDSegLoader, SWATSegLoader, UEAloader
 from data_provider.uea import collate_fn
 from torch.utils.data import DataLoader
+from exp_params import FlatExperimentConfig
 
 data_dict = {
     'ETTh1': Dataset_ETT_hour,
@@ -20,7 +21,8 @@ data_dict = {
 
 
 def data_provider(args, flag):
-    Data = data_dict[args.data]
+    Data = data_dict[args.data.name]
+    args = FlatExperimentConfig(args)
     timeenc = 0 if args.embed != 'timeF' else 1
 
     shuffle_flag = False if (flag == 'test' or flag == 'TEST') else True
@@ -62,7 +64,7 @@ def data_provider(args, flag):
         )
         return data_set, data_loader
     else:
-        if args.data == 'm4':
+        if args.data.name == 'm4':
             drop_last = False
         data_set = Data(
             args = args,

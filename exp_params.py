@@ -199,6 +199,8 @@ class FlatExperimentConfig:
             return getattr(self._config.forecast, name)
         if hasattr(self._config.model_params, name):
             return getattr(self._config.model_params, name)
+        if hasattr(self._config.augmentation, name):
+            return getattr(self._config.augmentation, name)
         if hasattr(self._config.optimization, name):
             return getattr(self._config.optimization, name)
         raise AttributeError(f"'{type(self._config).__name__}' object has no attribute '{name}'")

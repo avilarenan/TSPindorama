@@ -29,7 +29,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         return model
 
     def _get_data(self, flag):
-        data_set, data_loader = data_provider(self.args, flag)
+        data_set, data_loader = data_provider(FlatExperimentConfig(self.args), flag)
         return data_set, data_loader
 
     def _select_optimizer(self):
@@ -155,7 +155,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                 print("Early stopping")
                 break
 
-            adjust_learning_rate(model_optim, epoch + 1, self.args)
+            adjust_learning_rate(model_optim, epoch + 1, FlatExperimentConfig(self.args))
 
         best_model_path = path + '/' + 'checkpoint.pth'
         self.model.load_state_dict(torch.load(best_model_path))
