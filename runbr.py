@@ -6,25 +6,22 @@ from exp.exp_imputation import Exp_Imputation
 from exp.exp_short_term_forecasting import Exp_Short_Term_Forecast
 from exp.exp_anomaly_detection import Exp_Anomaly_Detection
 from exp.exp_classification import Exp_Classification
-from utils.print_args import print_args
 import random
 import numpy as np
-from types import SimpleNamespace
 
 import torch
 import torch.backends
 import random
 import numpy as np
-from utils.print_args import print_args
 
-from exp.exp_long_term_forecasting import Exp_Long_Term_Forecast
+from exp.exp_long_term_forecasting_br import Exp_Long_Term_Forecast # modernized
 from exp.exp_imputation import Exp_Imputation
 from exp.exp_short_term_forecasting import Exp_Short_Term_Forecast
 from exp.exp_anomaly_detection import Exp_Anomaly_Detection
 from exp.exp_classification import Exp_Classification
 
 from exp_params import ExperimentConfig
-
+from config_utils import *
 
 def run_experiment(args):
     fix_seed = 2021
@@ -51,7 +48,7 @@ def run_experiment(args):
         args.gpu.gpu = device_ids[0]
 
     print('Args in experiment:')
-    print_args(args)
+    print(args)
 
     # Select the appropriate experiment class
     if args.task_name == 'long_term_forecast':
@@ -113,15 +110,28 @@ def run_experiment(args):
         elif args.gpu.gpu_type == 'cuda':
             torch.cuda.empty_cache()
 
+def run_experiments_with_tracking(configs: List[ExperimentConfig], executed_file: str):
+    executed = load_executed_experiments(executed_file)
+    total = len(configs)
+
+    for idx, config in enumerate(configs):
+        config_hash = compute_config_hash(config)
+
+        if config_hash in executed:
+            print(f"Skipping already executed experiment: {executed[config_hash]} ({idx + 1}/{total})")
+            continue
+
+        print(f"Running experiment {config.experiment_id} ({idx + 1}/{total})")
+
+        # Place your experiment execution code here
+        run_experiment(config)
+
+        executed[config_hash] = config.experiment_id
+        save_executed_experiments(executed_file, executed)
+        print(f"Completed experiment {config.experiment_id}")
+
 if __name__ == '__main__':
-    config = ExperimentConfig()
 
-    dataset_name = "ETTh1"
-    prediction_length = 96
-
-    # Example of overriding a parameter
-    config.model_id = 'experiment_001'
-    config.data.data_path = 'new_dataset.csv'
-    config.forecast.pred_len = 192
-
-    run_experiment(config)
+    exp_configs = load_exp_configs("ETT_exp_test.json")
+    run_experiments_with_tracking(exp_configs, executed_file="executed_exps.json")
+        

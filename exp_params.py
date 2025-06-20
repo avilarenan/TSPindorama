@@ -173,6 +173,7 @@ class ExperimentConfig:
     model_id: str = 'test'  # Model ID
     model: str = 'Autoformer'  # Model name
     des: str = 'test'  # Experiment description
+    experiment_id: str = "test" # Experiment unique id
 
     data: DataConfig = field(default_factory=DataConfig)
     forecast: ForecastConfig = field(default_factory=ForecastConfig)
@@ -184,3 +185,20 @@ class ExperimentConfig:
     projector: ProjectorConfig = field(default_factory=ProjectorConfig)
     metrics: MetricsConfig = field(default_factory=MetricsConfig)
     augmentation: AugmentationConfig = field(default_factory=AugmentationConfig)
+
+class FlatExperimentConfig:
+    def __init__(self, config: ExperimentConfig):
+        self._config = config
+
+    def __getattr__(self, name):
+        if hasattr(self._config, name):
+            return getattr(self._config, name)
+        if hasattr(self._config.data, name):
+            return getattr(self._config.data, name)
+        if hasattr(self._config.forecast, name):
+            return getattr(self._config.forecast, name)
+        if hasattr(self._config.model_params, name):
+            return getattr(self._config.model_params, name)
+        if hasattr(self._config.optimization, name):
+            return getattr(self._config.optimization, name)
+        raise AttributeError(f"'{type(self._config).__name__}' object has no attribute '{name}'")

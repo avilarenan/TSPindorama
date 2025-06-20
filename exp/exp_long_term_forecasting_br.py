@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 from utils.dtw_metric import dtw, accelerated_dtw
 from utils.augmentation import run_augmentation, run_augmentation_single
+from exp_params import FlatExperimentConfig
 
 warnings.filterwarnings('ignore')
 
@@ -21,7 +22,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         super(Exp_Long_Term_Forecast, self).__init__(args)
 
     def _build_model(self):
-        model = self.model_dict[self.args.model].Model(self.args).float()
+        model = self.model_dict[self.args.model].Model(FlatExperimentConfig(self.args)).float()
 
         if self.args.gpu.use_multi_gpu and self.args.gpu.use_gpu:
             model = nn.DataParallel(model, device_ids=self.args.device_ids)
