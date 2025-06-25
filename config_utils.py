@@ -1,3 +1,4 @@
+# config_utils.py
 from typing import List, Tuple, Dict
 from exp_params import ExperimentConfig, DataConfig, ForecastConfig, ModelConfig, OptimizationConfig
 import yaml
@@ -116,3 +117,13 @@ def load_executed_experiments(file_path: str) -> Dict[str, str]:
 def save_executed_experiments(file_path: str, executed: Dict[str, str]):
     with open(file_path, 'w') as f:
         json.dump(executed, f, indent=4)
+
+def save_configs_to_json(configs: List[ExperimentConfig], output_file: str):
+    from dataclasses import asdict
+    with open(output_file, 'w') as f:
+        json.dump([asdict(config) for config in configs], f, indent=4)
+
+def save_configs_to_yaml(configs: List[ExperimentConfig], output_file: str):
+    from dataclasses import asdict
+    with open(output_file, 'w') as f:
+        yaml.dump([asdict(config) for config in configs], f, sort_keys=False)

@@ -5,6 +5,7 @@ import yaml
 import os
 from typing import List, Tuple, Dict
 from exp_params import ExperimentConfig, DataConfig, ForecastConfig, ModelConfig, OptimizationConfig
+from config_utils import save_configs_to_json, save_configs_to_yaml
 
 
 def parse_value(value: str):
@@ -220,18 +221,6 @@ def parse_all_shell_scripts_in_folder(folder_path: str) -> Tuple[List[Experiment
             all_errors.extend([f"File: {filename}\n{error}" for error in errors])
 
     return all_configs, all_errors
-
-
-def save_configs_to_json(configs: List[ExperimentConfig], output_file: str):
-    from dataclasses import asdict
-    with open(output_file, 'w') as f:
-        json.dump([asdict(config) for config in configs], f, indent=4)
-
-
-def save_configs_to_yaml(configs: List[ExperimentConfig], output_file: str):
-    from dataclasses import asdict
-    with open(output_file, 'w') as f:
-        yaml.dump([asdict(config) for config in configs], f, sort_keys=False)
 
 
 if __name__ == '__main__':
