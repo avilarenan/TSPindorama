@@ -1,49 +1,91 @@
+#!/bin/bash
 
+# Set the GPU to use
 export CUDA_VISIBLE_DEVICES=0
 
 # Model name
 model_name=WPMixer
 
-# Datasets and prediction lengths
-dataset=weather
-seq_lens=(512 512 512 512)
-pred_lens=(96 192 336 720)
-learning_rates=(0.000913333 0.001379042 0.000607991 0.001470479)
-batches=(32 64 32 128)
-epochs=(60 60 60 60)
-dropouts=(0.4 0.4 0.4 0.4)
-patch_lens=(16 16 16 16)
-lradjs=(type3 type3 type3 type3)
-d_models=(256 128 128 128)
-patiences=(12 12 12 12)
+python -u run.py \
+	--model $model_name \
+	--task_name long_term_forecast \
+	--data Weather \
+	--seq_len 512 \
+	--pred_len 96 \
+	--d_model 256 \
+	--tfactor 3 \
+	--dfactor 7 \
+	--wavelet db3 \
+	--level 2 \
+	--patch_len 16 \
+	--stride 8 \
+	--batch_size 32 \
+	--learning_rate 0.000913333 \
+	--lradj type3 \
+	--dropout 0.4 \
+	--embedding_dropout 0.1 \
+	--patience 12 \
+	--train_epochs 60
 
-# Model params below need to be set in WPMixer.py Line 15, instead of this script
-wavelets=(db3 db3 db3 db2)
-levels=(2 1 2 1)
-tfactors=(3 3 7 7)
-dfactors=(7 7 7 5)
-strides=(8 8 8 8)
-
-# Loop over datasets and prediction lengths
-for i in "${!pred_lens[@]}"; do
-	python -u run.py \
-		--is_training 1 \
-		--root_path ./data/weather/ \
-		--data_path weather.csv \
-		--model_id wpmixer \
-		--model $model_name \
-		--task_name long_term_forecast \
-		--data $dataset \
-		--seq_len ${seq_lens[$i]} \
-		--pred_len ${pred_lens[$i]} \
-		--label_len 0 \
-		--d_model ${d_models[$i]} \
-		--patch_len ${patch_lens[$i]} \
-		--batch_size ${batches[$i]} \
-		--learning_rate ${learning_rates[$i]} \
-		--lradj ${lradjs[$i]} \
-		--dropout ${dropouts[$i]} \
-		--patience ${patiences[$i]} \
-		--train_epochs ${epochs[$i]} \
-		--use_amp
-done
+python -u run.py \
+	--model $model_name \
+	--task_name long_term_forecast \
+	--data Weather \
+	--seq_len 512 \
+	--pred_len 192 \
+	--d_model 128 \
+	--tfactor 3 \
+	--dfactor 7 \
+	--wavelet db3 \
+	--level 1 \
+	--patch_len 16 \
+	--stride 8 \
+	--batch_size 64 \
+	--learning_rate 0.001379042 \
+	--lradj type3 \
+	--dropout 0.4 \
+	--embedding_dropout 0.0 \
+	--patience 12 \
+	--train_epochs 60
+		
+python -u run.py \
+	--model $model_name \
+	--task_name long_term_forecast \
+	--data Weather \
+	--seq_len 512 \
+	--pred_len 336 \
+	--d_model 128 \
+	--tfactor 7 \
+	--dfactor 7 \
+	--wavelet db3 \
+	--level 2 \
+	--patch_len 16 \
+	--stride 8 \
+	--batch_size 32 \
+	--learning_rate 0.000607991 \
+	--lradj type3 \
+	--dropout 0.4 \
+	--embedding_dropout 0.4 \
+	--patience 12 \
+	--train_epochs 60
+	
+python -u run.py \
+	--model $model_name \
+	--task_name long_term_forecast \
+	--data Weather \
+	--seq_len 512 \
+	--pred_len 720 \
+	--d_model 128 \
+	--tfactor 7 \
+	--dfactor 5 \
+	--wavelet db2 \
+	--level 1 \
+	--patch_len 16 \
+	--stride 8 \
+	--batch_size 128 \
+	--learning_rate 0.001470479 \
+	--lradj type3 \
+	--dropout 0.4 \
+	--embedding_dropout 0.2 \
+	--patience 12 \
+	--train_epochs 60

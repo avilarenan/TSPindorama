@@ -10,7 +10,7 @@ python -u run.py \
   --data_path traffic.csv \
   --model_id traffic_$pred_len'_'$pred_len \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len $pred_len \
   --label_len 48 \

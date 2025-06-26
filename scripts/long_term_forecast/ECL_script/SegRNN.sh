@@ -12,7 +12,7 @@ python -u run.py \
   --data_path electricity.csv \
   --model_id ECL_$seq_len'_'$pred_len \
   --model $model_name \
-  --data custom \
+  --data ECL \
   --features M \
   --seq_len $seq_len \
   --pred_len $pred_len \

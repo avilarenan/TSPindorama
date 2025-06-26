@@ -19,7 +19,7 @@ python -u run.py \
   --data_path traffic.csv \
   --model_id Traffic_$seq_len'_'96 \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len $seq_len \
   --label_len 0 \
@@ -47,7 +47,7 @@ python -u run.py \
   --data_path traffic.csv \
   --model_id Traffic_$seq_len'_'192 \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len $seq_len \
   --label_len 0 \
@@ -75,7 +75,7 @@ python -u run.py \
   --data_path traffic.csv \
   --model_id Traffic_$seq_len'_'336 \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len $seq_len \
   --label_len 0 \
@@ -103,7 +103,7 @@ python -u run.py \
   --data_path traffic.csv \
   --model_id Traffic_$seq_len'_'720 \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len $seq_len \
   --label_len 0 \

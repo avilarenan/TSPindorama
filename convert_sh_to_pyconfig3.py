@@ -224,11 +224,23 @@ def parse_all_shell_scripts_in_folder(folder_path: str) -> Tuple[List[Experiment
 
 
 if __name__ == '__main__':
-    shell_scripts_folder = './scripts/long_term_forecast/ETT_script'  # Change this to your folder path
-    configs, errors = parse_all_shell_scripts_in_folder(shell_scripts_folder)
+    scripts_folder = {
+        "ETT" : './scripts/long_term_forecast/ETT_script',
+        "Weather" : './scripts/long_term_forecast/Weather_script',
+        "Traffic" : './scripts/long_term_forecast/Traffic_script',
+        "ECL": './scripts/long_term_forecast/ECL_script'
+    }
 
-    save_configs_to_json(configs, 'ETT_exp_configs.json')
-    save_configs_to_yaml(configs, 'ETT_exp_configs.yaml')
+    all_configs = []
+    all_errors = []
+    for _, base_dataset_name_scripts_path in scripts_folder.items():
+        print(f"all_configs len = {len(all_configs)}")
+        configs, errors = parse_all_shell_scripts_in_folder(base_dataset_name_scripts_path)
+        all_configs += configs
+        all_errors += errors
+
+    save_configs_to_json(all_configs, 'exp_configs.json')
+    save_configs_to_yaml(all_configs, 'exp_configs.yaml')
 
     print(f"\nSuccessfully parsed {len(configs)} experiments.")
     if errors:
