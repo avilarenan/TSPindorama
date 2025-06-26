@@ -1,0 +1,43 @@
+Running experiment test (1/11424)
+Using GPU
+Args in experiment:
+ExperimentConfig(task_name='long_term_forecast', is_training=1, model_id='wpmixer', model='WPMixer', des='test', experiment_id='test', data=DataConfig(name='ETTh1', root_path='./dataset/ETT-small/ETTh1/ETTh1_w1251_ipfarm.csv', data_path='ETTh1_w1251_ipfarm.csv', features='M', target='OT', freq='h', checkpoints='./checkpoints/', seasonal_patterns='Monthly'), forecast=ForecastConfig(seq_len=512, label_len=0, pred_len=96, inverse=False), imputation=ImputationConfig(mask_rate=0.25), anomaly_detection=AnomalyConfig(anomaly_ratio=0.25), model_params=ModelConfig(expand=2, d_conv=4, top_k=5, num_kernels=6, enc_in=7, dec_in=7, c_out=7, d_model=512, n_heads=8, e_layers=2, d_layers=1, d_ff=2048, moving_avg=25, factor=1, distil=True, dropout=0.1, embed='timeF', activation='gelu', channel_independence=1, decomp_method='moving_avg', use_norm=1, down_sampling_layers=0, down_sampling_window=1, down_sampling_method=None, seg_len=96, patch_len=16), optimization=OptimizationConfig(num_workers=10, itr=1, train_epochs=10, batch_size=32, patience=3, learning_rate=0.0001, loss='MSE', lradj='type1', use_amp=False), gpu=GPUConfig(use_gpu=True, gpu=0, gpu_type='cuda', use_multi_gpu=False, devices='0,1,2,3'), projector=ProjectorConfig(p_hidden_dims=[128, 128], p_hidden_layers=2), metrics=MetricsConfig(use_dtw=False), augmentation=AugmentationConfig(augmentation_ratio=0, seed=2, jitter=False, scaling=False, permutation=False, randompermutation=False, magwarp=False, timewarp=False, windowslice=False, windowwarp=False, rotation=False, spawner=False, dtwwarp=False, shapedtwwarp=False, wdba=False, discdtw=False, discsdtw=False, extra_tag=''))
+Use GPU: cuda:0
+>>>>>>> Start training: long_term_forecast_wpmixer_WPMixer_ETTh1_ftM_sl512_ll0_pl96_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_test_0 >>>>>>>>>>>>>>>>>>>>>>>>>
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/TSPindorama/runbr.py", line 136, in <module>
+    run_experiments_with_tracking(exp_configs, executed_file="executed_exps.json")
+  File "/home/ubuntu/repos/TSPindorama/runbr.py", line 127, in run_experiments_with_tracking
+    run_experiment(config)
+  File "/home/ubuntu/repos/TSPindorama/runbr.py", line 84, in run_experiment
+    exp.train(setting)
+  File "/home/ubuntu/repos/TSPindorama/exp/exp_long_term_forecasting_br.py", line 78, in train
+    train_data, train_loader = self._get_data(flag='train')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/TSPindorama/exp/exp_long_term_forecasting_br.py", line 32, in _get_data
+    data_set, data_loader = data_provider(FlatExperimentConfig(self.args), flag)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/TSPindorama/data_provider/data_factory.py", line 69, in data_provider
+    data_set = Data(
+               ^^^^^
+  File "/home/ubuntu/repos/TSPindorama/data_provider/data_loader.py", line 47, in __init__
+    self.__read_data__()
+  File "/home/ubuntu/repos/TSPindorama/data_provider/data_loader.py", line 51, in __read_data__
+    df_raw = pd.read_csv(os.path.join(self.root_path,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/master_realm/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/master_realm/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/master_realm/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/master_realm/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/home/ubuntu/master_realm/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+NotADirectoryError: [Errno 20] Not a directory: './dataset/ETT-small/ETTh1/ETTh1_w1251_ipfarm.csv/ETTh1_w1251_ipfarm.csv'

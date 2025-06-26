@@ -132,6 +132,6 @@ def run_experiments_with_tracking(configs: List[ExperimentConfig], executed_file
 
 if __name__ == '__main__':
 
-    exp_configs = load_exp_configs("ETT_exp_test.json")
+    exp_configs = load_exp_configs("generated_exp_configs.json")
     run_experiments_with_tracking(exp_configs, executed_file="executed_exps.json")
         
