@@ -14,6 +14,10 @@ from utils.dtw_metric import dtw, accelerated_dtw
 from utils.augmentation import run_augmentation, run_augmentation_single
 from exp_params import FlatExperimentConfig
 
+import logging
+from log_utils import get_logger
+logger = get_logger()
+
 warnings.filterwarnings('ignore')
 
 

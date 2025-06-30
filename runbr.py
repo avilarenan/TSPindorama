@@ -1,3 +1,7 @@
+import logging
+from log_utils import setup_file_logging
+logger = setup_file_logging(log_file_path="tspindorama.log", level=logging.DEBUG)
+
 import os
 import torch
 import torch.backends
@@ -23,6 +27,8 @@ from exp.exp_classification import Exp_Classification
 from exp_params import ExperimentConfig
 from config_utils import *
 
+
+
 def run_experiment(args):
     fix_seed = 2021
     random.seed(fix_seed)
@@ -32,13 +38,13 @@ def run_experiment(args):
     # Setup device
     if torch.cuda.is_available() and args.gpu.use_gpu:
         device = torch.device(f'cuda:{args.gpu.gpu}')
-        print('Using GPU')
+        logger.info('Using GPU')
     else:
         if hasattr(torch.backends, "mps"):
             device = torch.device("mps") if torch.backends.mps.is_available() else torch.device("cpu")
         else:
             device = torch.device("cpu")
-        print('Using cpu or mps')
+        logger.info('Using cpu or mps')
 
     args.device = device
 
@@ -47,8 +53,8 @@ def run_experiment(args):
         args.device_ids = device_ids
         args.gpu.gpu = device_ids[0]
 
-    print('Args in experiment:')
-    print(args)
+    logger.info('Args in experiment:')
+    logger.info(args)
 
     # Select the appropriate experiment class
     if args.task_name == 'long_term_forecast':
@@ -80,10 +86,10 @@ def run_experiment(args):
                       f'fc{args.model_params.factor}_eb{args.model_params.embed}_dt{args.model_params.distil}_' \
                       f'{args.des}_{ii}'
 
-            print(f'>>>>>>> Start training: {setting} >>>>>>>>>>>>>>>>>>>>>>>>>')
+            logger.info(f'>>>>>>> Start training: {setting} >>>>>>>>>>>>>>>>>>>>>>>>>')
             exp.train(setting)
 
-            print(f'>>>>>>> Testing: {setting} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+            logger.info(f'>>>>>>> Testing: {setting} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
             exp.test(setting)
 
             if args.gpu.gpu_type == 'mps':
@@ -102,7 +108,7 @@ def run_experiment(args):
                   f'fc{args.model_params.factor}_eb{args.model_params.embed}_dt{args.model_params.distil}_' \
                   f'{args.des}_{ii}'
 
-        print(f'>>>>>>> Testing: {setting} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+        logger.info(f'>>>>>>> Testing: {setting} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
         exp.test(setting, test=1)
 
         if args.gpu.gpu_type == 'mps':
@@ -118,17 +124,17 @@ def run_experiments_with_tracking(configs: List[ExperimentConfig], executed_file
         config_hash = compute_config_hash(config)
 
         if config_hash in executed:
-            print(f"Skipping already executed experiment: {executed[config_hash]} ({idx + 1}/{total})")
+            logger.info(f"Skipping already executed experiment: {executed[config_hash]} ({idx + 1}/{total})")
             continue
 
-        print(f"Running experiment {config.experiment_id} ({idx + 1}/{total})")
+        logger.info(f"Running experiment {config.experiment_id} ({idx + 1}/{total})")
 
         # Place your experiment execution code here
         run_experiment(config)
 
         executed[config_hash] = config.experiment_id
         save_executed_experiments(executed_file, executed)
-        print(f"Completed experiment {config.experiment_id}")
+        logger.info(f"Completed experiment {config.experiment_id}")
 
 if __name__ == '__main__':
 
