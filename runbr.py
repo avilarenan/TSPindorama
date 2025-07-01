@@ -96,6 +96,7 @@ def run_experiment(args):
                 torch.backends.mps.empty_cache()
             elif args.gpu.gpu_type == 'cuda':
                 torch.cuda.empty_cache()
+            del exp
 
     else:
         exp = Exp(args)
@@ -115,6 +116,7 @@ def run_experiment(args):
             torch.backends.mps.empty_cache()
         elif args.gpu.gpu_type == 'cuda':
             torch.cuda.empty_cache()
+        del exp
 
 def run_experiments_with_tracking(configs: List[ExperimentConfig], executed_file: str):
     executed = load_executed_experiments(executed_file)
@@ -129,7 +131,6 @@ def run_experiments_with_tracking(configs: List[ExperimentConfig], executed_file
 
         logger.info(f"Running experiment {config.experiment_id} ({idx + 1}/{total})")
 
-        # Place your experiment execution code here
         run_experiment(config)
 
         executed[config_hash] = config.experiment_id
@@ -138,6 +139,15 @@ def run_experiments_with_tracking(configs: List[ExperimentConfig], executed_file
 
 if __name__ == '__main__':
 
-    exp_configs = load_exp_configs("generated_exp_configs.json")
-    run_experiments_with_tracking(exp_configs, executed_file="executed_exps.json")
+    while True:
+        try:
+            exp_configs = load_exp_configs("generated_exp_configs.json")
+            run_experiments_with_tracking(exp_configs, executed_file="executed_exps.json")
+            break # stop the loop if the function completes sucessfully
+        except Exception as e:
+            logger.info(f"Function errored out! \n{e}")
+            logger.exception(f"Exception!")
+            logger.info("Retrying ... ")
+
+    
         

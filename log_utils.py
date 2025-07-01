@@ -1,5 +1,6 @@
 import logging
 import logging.handlers
+import psutil
 
 LOGGER_NAME = "TSPINDORAMA"
 
@@ -43,3 +44,13 @@ def setup_file_logging(log_file_path="application.log", level=logging.INFO, max_
         logger.addHandler(file_handler)
 
     return logger
+
+def show_ram(msg):
+    logger = get_logger()
+    ram = psutil.virtual_memory()
+
+    logger.info(f"SHOWING RAM: {msg}")
+    logger.debug(f"Total RAM: {round(ram.total / (1024**3), 2)} GB")
+    logger.debug(f"Available RAM: {round(ram.available / (1024**3), 2)} GB")
+    logger.debug(f"Used RAM: {round(ram.used / (1024**3), 2)} GB")
+    logger.info(f"RAM Usage Percentage: {ram.percent}%")

@@ -15,7 +15,7 @@ from utils.augmentation import run_augmentation, run_augmentation_single
 from exp_params import FlatExperimentConfig
 
 import logging
-from log_utils import get_logger
+from log_utils import get_logger, show_ram
 logger = get_logger()
 
 warnings.filterwarnings('ignore')
@@ -79,9 +79,13 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         return total_loss
 
     def train(self, setting):
+        show_ram("Before data loading")
+
         train_data, train_loader = self._get_data(flag='train')
         vali_data, vali_loader = self._get_data(flag='val')
         test_data, test_loader = self._get_data(flag='test')
+
+        show_ram("After data loading")
 
         path = os.path.join(self.args.data.checkpoints, setting)
         if not os.path.exists(path):
@@ -98,12 +102,15 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         if self.args.optimization.use_amp:
             scaler = torch.cuda.amp.GradScaler()
 
+        show_ram("Before epochs")
+
         for epoch in range(self.args.optimization.train_epochs):
             iter_count = 0
             train_loss = []
 
             self.model.train()
             epoch_time = time.time()
+            show_ram("Before batches")
             for i, (batch_x, batch_y, batch_x_mark, batch_y_mark) in enumerate(train_loader):
                 iter_count += 1
                 model_optim.zero_grad()
@@ -133,10 +140,10 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                     train_loss.append(loss.item())
 
                 if (i + 1) % 100 == 0:
-                    print(f"	iters: {i + 1}, epoch: {epoch + 1} | loss: {loss.item():.7f}")
+                    logger.info(f"	iters: {i + 1}, epoch: {epoch + 1} | loss: {loss.item():.7f}")
                     speed = (time.time() - time_now) / iter_count
                     left_time = speed * ((self.args.optimization.train_epochs - epoch) * train_steps - i)
-                    print(f'	speed: {speed:.4f}s/iter; left time: {left_time:.4f}s')
+                    logger.info(f'	speed: {speed:.4f}s/iter; left time: {left_time:.4f}s')
                     iter_count = 0
                     time_now = time.time()
 
@@ -148,18 +155,20 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                     loss.backward()
                     model_optim.step()
 
-            print(f"Epoch: {epoch + 1} cost time: {time.time() - epoch_time}")
+            logger.info(f"Epoch: {epoch + 1} cost time: {time.time() - epoch_time}")
             train_loss = np.average(train_loss)
             vali_loss = self.vali(vali_data, vali_loader, criterion)
             test_loss = self.vali(test_data, test_loader, criterion)
 
-            print(f"Epoch: {epoch + 1}, Steps: {train_steps} | Train Loss: {train_loss:.7f} Vali Loss: {vali_loss:.7f} Test Loss: {test_loss:.7f}")
+            logger.info(f"Epoch: {epoch + 1}, Steps: {train_steps} | Train Loss: {train_loss:.7f} Vali Loss: {vali_loss:.7f} Test Loss: {test_loss:.7f}")
             early_stopping(vali_loss, self.model, path)
             if early_stopping.early_stop:
-                print("Early stopping")
+                logger.info("Early stopping")
                 break
 
             adjust_learning_rate(model_optim, epoch + 1, FlatExperimentConfig(self.args))
+
+        show_ram("After epochs")
 
         best_model_path = path + '/' + 'checkpoint.pth'
         self.model.load_state_dict(torch.load(best_model_path))
@@ -169,7 +178,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
     def test(self, setting, test=0):
         test_data, test_loader = self._get_data(flag='test')
         if test:
-            print('loading model')
+            logger.info('loading model')
             self.model.load_state_dict(torch.load(os.path.join('./checkpoints/' + setting, 'checkpoint.pth')))
 
         preds = []
@@ -225,10 +234,9 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
         preds = np.concatenate(preds, axis=0)
         trues = np.concatenate(trues, axis=0)
-        print('test shape:', preds.shape, trues.shape)
         preds = preds.reshape(-1, preds.shape[-2], preds.shape[-1])
         trues = trues.reshape(-1, trues.shape[-2], trues.shape[-1])
-        print('test shape:', preds.shape, trues.shape)
+        logger.info(f"test shape: preds {preds.shape}, shape {trues.shape}")
 
         folder_path = './results/' + setting + '/'
         if not os.path.exists(folder_path):
@@ -241,7 +249,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                 x = preds[i].reshape(-1, 1)
                 y = trues[i].reshape(-1, 1)
                 if i % 100 == 0:
-                    print("calculating dtw iter:", i)
+                    logger.info("calculating dtw iter:", i)
                 d, _, _, _ = accelerated_dtw(x, y, dist=manhattan_distance)
                 dtw_list.append(d)
             dtw = np.array(dtw_list).mean()
@@ -249,7 +257,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
             dtw = 'Not calculated'
 
         mae, mse, rmse, mape, mspe = metric(preds, trues)
-        print('mse:{}, mae:{}, dtw:{}'.format(mse, mae, dtw))
+        logger.info('mse:{}, mae:{}, dtw:{}'.format(mse, mae, dtw))
         f = open("result_long_term_forecast.txt", 'a')
         f.write(setting + "  \n")
         f.write('mse:{}, mae:{}, dtw:{}'.format(mse, mae, dtw))
