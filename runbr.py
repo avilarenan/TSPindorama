@@ -1,32 +1,19 @@
+import argparse
 import logging
 from log_utils import setup_file_logging
-logger = setup_file_logging(log_file_path="tspindorama.log", level=logging.DEBUG)
-
-import os
+from config_utils import load_exp_configs, compute_config_hash
+from exp_params import ExperimentConfig
 import torch
 import torch.backends
+import random
+import numpy as np
 from exp.exp_long_term_forecasting_br import Exp_Long_Term_Forecast
 from exp.exp_imputation import Exp_Imputation
 from exp.exp_short_term_forecasting import Exp_Short_Term_Forecast
 from exp.exp_anomaly_detection import Exp_Anomaly_Detection
 from exp.exp_classification import Exp_Classification
-import random
-import numpy as np
 
-import torch
-import torch.backends
-import random
-import numpy as np
-
-from exp.exp_long_term_forecasting_br import Exp_Long_Term_Forecast # modernized
-from exp.exp_imputation import Exp_Imputation
-from exp.exp_short_term_forecasting import Exp_Short_Term_Forecast
-from exp.exp_anomaly_detection import Exp_Anomaly_Detection
-from exp.exp_classification import Exp_Classification
-
-from exp_params import ExperimentConfig
-from config_utils import *
-
+logger = setup_file_logging(log_file_path="tspindorama_single.log", level=logging.INFO)
 
 
 def run_experiment(args):
@@ -118,36 +105,24 @@ def run_experiment(args):
             torch.cuda.empty_cache()
         del exp
 
-def run_experiments_with_tracking(configs: List[ExperimentConfig], executed_file: str):
-    executed = load_executed_experiments(executed_file)
-    total = len(configs)
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--hash', required=True, help='Hash of the config to run')
+    parser.add_argument('--config_file', default="generated_exp_configs.json", help='Config file to search in')
+    args = parser.parse_args()
 
-    for idx, config in enumerate(configs):
-        config_hash = compute_config_hash(config)
+    configs = load_exp_configs(args.config_file)
+    found = None
+    for config in configs:
+        if compute_config_hash(config) == args.hash:
+            found = config
+            break
 
-        if config_hash in executed:
-            logger.info(f"Skipping already executed experiment: {executed[config_hash]} ({idx + 1}/{total})")
-            continue
+    if not found:
+        raise ValueError(f"No experiment config found for hash {args.hash}")
 
-        logger.info(f"Running experiment {config.experiment_id} ({idx + 1}/{total})")
-
-        run_experiment(config)
-
-        executed[config_hash] = config.experiment_id
-        save_executed_experiments(executed_file, executed)
-        logger.info(f"Completed experiment {config.experiment_id}")
+    logger.info(f"Running config with hash {args.hash}: {found.experiment_id}")
+    run_experiment(found)
 
 if __name__ == '__main__':
-
-    while True:
-        try:
-            exp_configs = load_exp_configs("generated_exp_configs.json")
-            run_experiments_with_tracking(exp_configs, executed_file="executed_exps.json")
-            break # stop the loop if the function completes sucessfully
-        except Exception as e:
-            logger.info(f"Function errored out! \n{e}")
-            logger.exception(f"Exception!")
-            logger.info("Retrying ... ")
-
-    
-        
+    main()
