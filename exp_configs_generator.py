@@ -23,8 +23,10 @@ datasets_path_mapping = {
 list_of_configs = []
 list_of_config_hashes = []
 # Get a list of all CSV files in the specified folder
-prediction_lengths = [96, 192, 336, 720]
-models = ["iTransformer", "TimesNet", "TimeXer", "PatchTST", "Nonstationary_Transformer", "Crossformer", "Autoformer"]
+prediction_lengths = [96] #, 192, 336, 720]
+models = ["iTransformer", "TimeXer", "PatchTST", "Nonstationary_Transformer", "Crossformer", "Autoformer"]
+
+# "TimesNet" -> PROBLEM: gpu gradually scale up to crash
 
 found = {}
 for dataset_name in datasets_path_mapping.keys():
