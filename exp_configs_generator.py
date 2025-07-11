@@ -24,9 +24,12 @@ list_of_configs = []
 list_of_config_hashes = []
 # Get a list of all CSV files in the specified folder
 prediction_lengths = [96] #, 192, 336, 720]
-models = ["iTransformer", "TimeXer", "PatchTST", "Nonstationary_Transformer", "Crossformer", "Autoformer"]
+models = ["iTransformer", "TimeXer", "PatchTST", "Crossformer", "Autoformer"]
+
+# PatchTST -> does not fit GPU ram for all datasets, even for pred_len 96, problems with Traffic dataset
 
 # "TimesNet" -> PROBLEM: gpu gradually scale up to crash
+# "Nonstationary_Transformer" -> gpu runs out of memory for all experiments
 
 found = {}
 for dataset_name in datasets_path_mapping.keys():
