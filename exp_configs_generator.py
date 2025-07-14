@@ -9,16 +9,6 @@ OUTPUT_CONFIGS_FILE = "generated_exp_configs.json"
 
 base_configs = load_configs_from_yaml(BASE_CONFIGS_FILE)
 
-datasets_path_mapping = {
-    "ETTh1" : "./dataset/ETT-small/ETTh1/",
-    "ETTh2" : "./dataset/ETT-small/ETTh2/",
-    "ETTm1" : "./dataset/ETT-small/ETTm1/",
-    "ETTm2" : "./dataset/ETT-small/ETTm2/",
-    "ECL": "./dataset/electricity/ECL/",
-    "Traffic": "./dataset/traffic/Traffic/",
-    "Weather": "./dataset/weather/Weather/"
-}
-
 
 list_of_configs = []
 list_of_config_hashes = []

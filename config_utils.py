@@ -16,6 +16,16 @@ NAME_LIST = [
     'vortex', 'wanderer', 'zenith', 'zephyr', 'onyx', 'crystal', 'ember', 'storm', 'echo', 'flare'
 ]
 
+datasets_path_mapping = {
+    "ETTh1" : "./dataset/ETT-small/ETTh1/",
+    "ETTh2" : "./dataset/ETT-small/ETTh2/",
+    "ETTm1" : "./dataset/ETT-small/ETTm1/",
+    "ETTm2" : "./dataset/ETT-small/ETTm2/",
+    "ECL": "./dataset/electricity/ECL/",
+    "Traffic": "./dataset/traffic/Traffic/",
+    "Weather": "./dataset/weather/Weather/"
+}
+
 def generate_experiment_id() -> str:
     """
     Generate a unique experiment ID using the current date and two random names.

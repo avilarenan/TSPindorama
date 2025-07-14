@@ -338,4 +338,4 @@ def get_forecast_plot(model_name, dataset, pred_len, cutoff_index, best_results,
     p_i = p_i.rename({"preds": "preds_identity", "true": "true_identity"}, axis=1)
 
     ret_df = pd.concat([p, p_i], axis=1)[["preds_shaped", "preds_identity", "true_shaped"]]
-    return ret_df.rename({"true_shaped": "true"}, axis=1).plot()
+    return ret_df.rename({"true_shaped": "true"}, axis=1)
