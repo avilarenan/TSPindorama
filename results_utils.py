@@ -89,12 +89,6 @@ def get_results(with_calc_improv=True):
 
     return merged_df_inner
 
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import plotly.graph_objects as go
-from scipy import stats, interpolate
-
 def plot_results(
     df: pd.DataFrame,
     value_col: str,
@@ -305,3 +299,43 @@ def plot_results(
 
     else:
         raise ValueError("backend must be 'matplotlib' or 'plotly'")
+    
+
+def get_best_results(results_df):
+    idx = results_df.groupby(["dataset", "pred_len", "model_name"])['mse'].idxmin()
+    return results_df.loc[idx].sort_values(by=["dataset", "mse"], ascending=True)
+
+
+def get_forecast_plot(model_name, dataset, pred_len, cutoff_index, best_results, all_results):
+
+    exp_name = best_results[
+        (best_results["model_name"] == model_name) & 
+        (best_results["dataset"] == dataset) & 
+        (best_results["pred_len"] == pred_len)
+    ]["exp_name"].values[0] # there should be only one with this filter
+    print(exp_name)
+
+    exp_name_identity = all_results[
+        (all_results["model_name"] == model_name) & 
+        (all_results["dataset"] == dataset) & 
+        (all_results["pred_len"] == pred_len) &
+        (all_results["pconstructor"] == "identity")
+    ]["exp_name"].values[0] # there should be only one with this filter
+    print(exp_name_identity)
+
+    metrics_shaped = pd.read_csv(f"./results/{exp_name}/_metrics.csv")
+    print(f"Metrics shaped: {metrics_shaped}")
+    metrics_shaped = pd.read_csv(f"./results/{exp_name_identity}/_metrics.csv")
+    print(f"Metrics identity: {metrics_shaped}")
+
+    pred_df = pd.read_csv(f"./results/{exp_name}/preds_vs_trues.csv")
+    pred_df_identity = pd.read_csv(f"./results/{exp_name_identity}/preds_vs_trues.csv")
+
+    p = pred_df[pred_df["cutoff_index"]==cutoff_index]
+    p_i = pred_df_identity[pred_df_identity["cutoff_index"]==cutoff_index]
+
+    p = p.rename({"preds": "preds_shaped", "true": "true_shaped"}, axis=1)
+    p_i = p_i.rename({"preds": "preds_identity", "true": "true_identity"}, axis=1)
+
+    ret_df = pd.concat([p, p_i], axis=1)[["preds_shaped", "preds_identity", "true_shaped"]]
+    return ret_df.rename({"true_shaped": "true"}, axis=1).plot()
