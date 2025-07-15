@@ -186,9 +186,10 @@ def plot_results(
                                 textcoords="offset points", ha="center", fontsize=8,
                                 color=palette[i % len(palette)])
 
-            if y_agg_col is None:
-                ax.hist(values, bins=bin_edges, alpha=0.4, density=False,
-                        color=palette[i % len(palette)], label=f"{g} (hist)", **hist_kwargs)
+            # Plot bars regardless of y_agg_col
+            bar_label = f"{g} (hist)" if y_agg_col is None else f"{g} (bars)"
+            ax.bar(x_mid, y_vals, width=np.diff(bin_edges), alpha=0.4,
+                   color=palette[i % len(palette)], label=bar_label, **hist_kwargs)
 
         if vline_at_zero:
             ax.axvline(0, color="black", linestyle="--", linewidth=1)
@@ -273,14 +274,16 @@ def plot_results(
                         annotation_font=dict(size=10, color=palette[i % len(palette)])
                     )
 
-            if y_agg_col is None:
-                fig.add_histogram(
-                    x=values, name=f"{g} (hist)",
-                    opacity=0.5,
-                    nbinsx=len(bin_edges)-1 if bin_edges is not None else bins,
-                    marker_color=palette[i % len(palette)],
-                    **hist_kwargs
-                )
+            # Plot bars regardless of y_agg_col
+            bar_label = f"{g} (hist)" if y_agg_col is None else f"{g} (bars)"
+            fig.add_trace(go.Bar(
+                x=x_mid,
+                y=y_vals,
+                name=bar_label,
+                opacity=0.5,
+                marker_color=palette[i % len(palette)],
+                **hist_kwargs
+            ))
 
         if vline_at_zero:
             fig.add_vline(
@@ -299,7 +302,7 @@ def plot_results(
 
     else:
         raise ValueError("backend must be 'matplotlib' or 'plotly'")
-    
+
 
 def get_best_results(results_df):
     idx = results_df.groupby(["dataset", "pred_len", "model_name"])['mse'].idxmin()
