@@ -6,14 +6,13 @@ import copy
 BASE_CONFIGS_FILE = "exp_configs.json"
 OUTPUT_CONFIGS_FILE = "generated_exp_configs.json"
 
-
 base_configs = load_configs_from_yaml(BASE_CONFIGS_FILE)
 
 
 list_of_configs = []
 list_of_config_hashes = []
 # Get a list of all CSV files in the specified folder
-prediction_lengths = [96] #, 192, 336, 720]
+prediction_lengths = [96,] #192, 336, 720]
 models = ["iTransformer", "TimeXer", "PatchTST", "Crossformer", "Autoformer"]
 
 # PatchTST -> does not fit GPU ram for all datasets, even for pred_len 96, problems with Traffic dataset
