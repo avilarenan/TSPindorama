@@ -308,6 +308,59 @@ def get_best_results(results_df):
     idx = results_df.groupby(["dataset", "pred_len", "model_name"])['mse'].idxmin()
     return results_df.loc[idx].sort_values(by=["dataset", "mse"], ascending=True)
 
+def shape_best_result_for_final_format(best_results_df, shrink_column_names=False):
+    """
+    This function is intended to have as input the 'get_best_results' function's output.
+    It will return the dataframe shape exactly in the final paper format.
+    """
+    best_results_df['pconstructor'] = best_results_df['pconstructor'].str.replace('.csv', '', regex=False)
+
+    # We will melt the original DataFrame to long format to allow multi-metric pivoting
+    df_melted = best_results_df.melt(
+        id_vars=['dataset', 'pred_len', 'model_name'],
+        value_vars=['mse', 'mse_identity', 'improvement', 'pwindow', 'pconstructor'],
+        var_name='metric',
+        value_name='value'
+    )
+
+    # Now pivot to get the desired structure
+    pivot_multi_metric = df_melted.pivot_table(
+        index=['dataset', 'pred_len'],           # y-axis
+        columns=['model_name', 'metric'],        # x-axis
+        values='value',
+        aggfunc='first'
+    )
+
+    # Sort columns for neatness
+    pivot_multi_metric = pivot_multi_metric.sort_index(axis=1, level=[0, 1])
+
+
+    if shrink_column_names:
+        model_name_map = {
+            "iTransformer": "iTransformer",
+            "TimeXer": "TimeXer",
+            "Autoformer": "AutoFormer",
+            "PatchTST": "PatchTST",
+            "Crossformer": "CrossFormer"
+        }
+
+        metric_map = {
+            "mse": "MSE",
+            "mse_identity": "MSEid",
+            "improvement": "Δ%",
+            "pwindow": "W",
+            "pconstructor": "C"
+        }
+
+        # Rename MultiIndex columns
+        pivot_shrunk = pivot_multi_metric.copy()
+        pivot_shrunk.columns = pd.MultiIndex.from_tuples([
+            (model_name_map.get(model, model), metric_map.get(metric, metric))
+            for model, metric in pivot_shrunk.columns
+        ])
+        return pivot_shrunk
+
+    return pivot_multi_metric
 
 def get_forecast_plot(model_name, dataset, pred_len, cutoff_index, best_results, all_results):
 
