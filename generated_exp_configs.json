@@ -108,6 +108,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96ETTh2.csv",
+        "model": "iTransformer",
+        "des": "Exp",
+        "experiment_id": "c1e701ee444b7cc426c9598363b84fbd",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "192_96ETTm2_w1501_iprollcorr.csv",
         "model": "iTransformer",
         "des": "Exp",
@@ -116,6 +222,112 @@
             "name": "ETTm2",
             "root_path": "./dataset/ETT-small/ETTm2/",
             "data_path": "ETTm2_w1501_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "192_96ETTm2.csv",
+        "model": "iTransformer",
+        "des": "Exp",
+        "experiment_id": "db984ed41f116e791bc18ae488762bbc",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -320,6 +532,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "336_96ETTh2.csv",
+        "model": "iTransformer",
+        "des": "Exp",
+        "experiment_id": "963ad15106971c7e15714120a5498239",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96ETTm2_w1501_iprollcorr.csv",
         "model": "iTransformer",
         "des": "Exp",
@@ -328,6 +646,112 @@
             "name": "ETTm2",
             "root_path": "./dataset/ETT-small/ETTm2/",
             "data_path": "ETTm2_w1501_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96ETTm2.csv",
+        "model": "iTransformer",
+        "des": "Exp",
+        "experiment_id": "8d8f8826fc391a7fb1ccbd6e890bfae1",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -532,6 +956,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ETTh2.csv",
+        "model": "iTransformer",
+        "des": "Exp",
+        "experiment_id": "e6597b522cc8c2eaa9f3dd5088c208cf",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96ETTm2_w1501_iprollcorr.csv",
         "model": "iTransformer",
         "des": "Exp",
@@ -540,6 +1070,112 @@
             "name": "ETTm2",
             "root_path": "./dataset/ETT-small/ETTm2/",
             "data_path": "ETTm2_w1501_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "720_96ETTm2.csv",
+        "model": "iTransformer",
+        "des": "Exp",
+        "experiment_id": "ac6663a962449ef968be2ca5f564b978",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -744,6 +1380,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96ETTh2.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "cf392f902f497ce6213cc8cd872027e4",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "192_96ETTm1_w751_iprollcorr.csv",
         "model": "TimeXer",
         "des": "Exp",
@@ -752,6 +1494,112 @@
             "name": "ETTm1",
             "root_path": "./dataset/ETT-small/ETTm1/",
             "data_path": "ETTm1_w751_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "192_96ETTm1.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "3bb7eae6df5d578245eb1bbed4fd4c17",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -956,6 +1804,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96ETTm2.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "9b9d99a3a6a04ce57bd0b621dfd7106a",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "192_96ECL_w501_ipfarm.csv",
         "model": "TimeXer",
         "des": "Exp",
@@ -964,6 +1918,112 @@
             "name": "ECL",
             "root_path": "./dataset/electricity/ECL/",
             "data_path": "ECL_w501_ipfarm.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 321,
+            "dec_in": 321,
+            "c_out": 321,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 3,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "192_96ECL.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "920a409fc5d107424f6448933c6917b4",
+        "data": {
+            "name": "ECL",
+            "root_path": "./dataset/electricity/ECL/",
+            "data_path": "ECL.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -1168,6 +2228,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "336_96ETTh2.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "d840147a76f96e07d56a4f80a741c60c",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96ETTm1_w751_iprollcorr.csv",
         "model": "TimeXer",
         "des": "Exp",
@@ -1176,6 +2342,112 @@
             "name": "ETTm1",
             "root_path": "./dataset/ETT-small/ETTm1/",
             "data_path": "ETTm1_w751_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96ETTm1.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "7866ae9ea73d9497f80e5b060808ea67",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -1380,6 +2652,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "336_96ETTm2.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "21690b6f8382587402b1d910fa5fb75e",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96ECL_w501_ipfarm.csv",
         "model": "TimeXer",
         "des": "Exp",
@@ -1388,6 +2766,112 @@
             "name": "ECL",
             "root_path": "./dataset/electricity/ECL/",
             "data_path": "ECL_w501_ipfarm.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 321,
+            "dec_in": 321,
+            "c_out": 321,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 4,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96ECL.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "28cd16c9e028164b4eacf8757d641752",
+        "data": {
+            "name": "ECL",
+            "root_path": "./dataset/electricity/ECL/",
+            "data_path": "ECL.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -1592,6 +3076,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ETTh2.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "382046d1c0cf8af20894b643b9f11c00",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96ETTm1_w751_iprollcorr.csv",
         "model": "TimeXer",
         "des": "Exp",
@@ -1600,6 +3190,112 @@
             "name": "ETTm1",
             "root_path": "./dataset/ETT-small/ETTm1/",
             "data_path": "ETTm1_w751_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "720_96ETTm1.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "428ac38c725429072a70721da59e6091",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -1804,6 +3500,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ETTm2.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "c674bab2fc9ebce8b69bcd78cedde192",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96ECL_w501_ipfarm.csv",
         "model": "TimeXer",
         "des": "Exp",
@@ -1812,6 +3614,112 @@
             "name": "ECL",
             "root_path": "./dataset/electricity/ECL/",
             "data_path": "ECL_w501_ipfarm.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 321,
+            "dec_in": 321,
+            "c_out": 321,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 3,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "720_96ECL.csv",
+        "model": "TimeXer",
+        "des": "Exp",
+        "experiment_id": "5200df8cb5a6cedbb06b3ef053d904b2",
+        "data": {
+            "name": "ECL",
+            "root_path": "./dataset/electricity/ECL/",
+            "data_path": "ECL.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -2016,6 +3924,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96ETTh1.csv",
+        "model": "PatchTST",
+        "des": "Exp",
+        "experiment_id": "33f158a98db3e81aa332ef974cbfa4ea",
+        "data": {
+            "name": "ETTh1",
+            "root_path": "./dataset/ETT-small/ETTh1/",
+            "data_path": "ETTh1.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "192_96ETTm2_w1001_prollcorr.csv",
         "model": "PatchTST",
         "des": "Exp",
@@ -2122,14 +4136,14 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
-        "model_id": "192_96ECL_w501_ipentropy.csv",
+        "model_id": "192_96ETTm2.csv",
         "model": "PatchTST",
         "des": "Exp",
-        "experiment_id": "fcc5b344f32c0e7459fe6099a698cf3e",
+        "experiment_id": "1beaeb2fb1f1c70b461908c579540e6a",
         "data": {
-            "name": "ECL",
-            "root_path": "./dataset/electricity/ECL/",
-            "data_path": "ECL_w501_ipentropy.csv",
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -2153,12 +4167,12 @@
             "d_conv": 4,
             "top_k": 5,
             "num_kernels": 6,
-            "enc_in": 321,
-            "dec_in": 321,
-            "c_out": 321,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
             "d_model": 512,
             "n_heads": 8,
-            "e_layers": 2,
+            "e_layers": 3,
             "d_layers": 1,
             "d_ff": 2048,
             "moving_avg": 25,
@@ -2236,6 +4250,112 @@
             "name": "Weather",
             "root_path": "./dataset/weather/Weather/",
             "data_path": "Weather_w1501_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "192_96Weather.csv",
+        "model": "PatchTST",
+        "des": "Exp",
+        "experiment_id": "2043ceae9c75e3f319ee03d7d6a161c0",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -2440,6 +4560,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "336_96ETTh1.csv",
+        "model": "PatchTST",
+        "des": "Exp",
+        "experiment_id": "ddfef5c1dcf171178572469bd78d8d07",
+        "data": {
+            "name": "ETTh1",
+            "root_path": "./dataset/ETT-small/ETTh1/",
+            "data_path": "ETTh1.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96ETTm2_w1001_prollcorr.csv",
         "model": "PatchTST",
         "des": "Exp",
@@ -2546,14 +4772,14 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
-        "model_id": "336_96ECL_w501_ipentropy.csv",
+        "model_id": "336_96ETTm2.csv",
         "model": "PatchTST",
         "des": "Exp",
-        "experiment_id": "a2e5a9d09ac5c3ad98b29f78c9197857",
+        "experiment_id": "6de5704cb9bf40dfcc7b13e9730e8a28",
         "data": {
-            "name": "ECL",
-            "root_path": "./dataset/electricity/ECL/",
-            "data_path": "ECL_w501_ipentropy.csv",
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -2577,12 +4803,12 @@
             "d_conv": 4,
             "top_k": 5,
             "num_kernels": 6,
-            "enc_in": 321,
-            "dec_in": 321,
-            "c_out": 321,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
             "d_model": 512,
             "n_heads": 8,
-            "e_layers": 2,
+            "e_layers": 1,
             "d_layers": 1,
             "d_ff": 2048,
             "moving_avg": 25,
@@ -2660,6 +4886,112 @@
             "name": "Weather",
             "root_path": "./dataset/weather/Weather/",
             "data_path": "Weather_w1501_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96Weather.csv",
+        "model": "PatchTST",
+        "des": "Exp",
+        "experiment_id": "878dbeb9099306e23bf19cfa3eaeb7a0",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -2864,6 +5196,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ETTh1.csv",
+        "model": "PatchTST",
+        "des": "Exp",
+        "experiment_id": "2dbe1db81b8ff52a8e54b41260a133ab",
+        "data": {
+            "name": "ETTh1",
+            "root_path": "./dataset/ETT-small/ETTh1/",
+            "data_path": "ETTh1.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 1,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96ETTm2_w1001_prollcorr.csv",
         "model": "PatchTST",
         "des": "Exp",
@@ -2970,14 +5408,14 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
-        "model_id": "720_96ECL_w501_ipentropy.csv",
+        "model_id": "720_96ETTm2.csv",
         "model": "PatchTST",
         "des": "Exp",
-        "experiment_id": "20b09177db67ec8d599502b4e6e0913f",
+        "experiment_id": "f8bb5ce80d4be511fca19b79ab645086",
         "data": {
-            "name": "ECL",
-            "root_path": "./dataset/electricity/ECL/",
-            "data_path": "ECL_w501_ipentropy.csv",
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -3001,12 +5439,12 @@
             "d_conv": 4,
             "top_k": 5,
             "num_kernels": 6,
-            "enc_in": 321,
-            "dec_in": 321,
-            "c_out": 321,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
             "d_model": 512,
             "n_heads": 8,
-            "e_layers": 2,
+            "e_layers": 3,
             "d_layers": 1,
             "d_ff": 2048,
             "moving_avg": 25,
@@ -3084,6 +5522,112 @@
             "name": "Weather",
             "root_path": "./dataset/weather/Weather/",
             "data_path": "Weather_w1501_iprollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "720_96Weather.csv",
+        "model": "PatchTST",
+        "des": "Exp",
+        "experiment_id": "3fee526f6f9d0d1e27c13e6bc78f1dcf",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -3288,6 +5832,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96ETTh2.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "01d6240ad2acdb1f23ce917fbd4d5765",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "192_96ETTm1_w1501_prollcov.csv",
         "model": "Crossformer",
         "des": "Exp",
@@ -3296,6 +5946,112 @@
             "name": "ETTm1",
             "root_path": "./dataset/ETT-small/ETTm1/",
             "data_path": "ETTm1_w1501_prollcov.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "192_96ETTm1.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "effa9b2cc4a9755baf6d3972d6b207a6",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -3500,6 +6256,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96ETTm2.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "6fcaa6c528e38fd4455e500b5639c18f",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "192_96Weather_w1501_iprollcov.csv",
         "model": "Crossformer",
         "des": "Exp",
@@ -3508,6 +6370,112 @@
             "name": "Weather",
             "root_path": "./dataset/weather/Weather/",
             "data_path": "Weather_w1501_iprollcov.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "192_96Weather.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "ae8460b970808d88bde11a8128d8c77d",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -3712,6 +6680,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "336_96ETTh2.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "734df9df78bdadb0eb8c9ced2776068f",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96ETTm1_w1501_prollcov.csv",
         "model": "Crossformer",
         "des": "Exp",
@@ -3720,6 +6794,112 @@
             "name": "ETTm1",
             "root_path": "./dataset/ETT-small/ETTm1/",
             "data_path": "ETTm1_w1501_prollcov.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96ETTm1.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "0fb1b50a4b6812028783b0568e5e02c8",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -3924,6 +7104,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "336_96ETTm2.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "554561a15c43cd668fbdf513ddeb5a26",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96Weather_w1501_iprollcov.csv",
         "model": "Crossformer",
         "des": "Exp",
@@ -3932,6 +7218,112 @@
             "name": "Weather",
             "root_path": "./dataset/weather/Weather/",
             "data_path": "Weather_w1501_iprollcov.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96Weather.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "e0684f9451fb2052e6bbd4a312fecb19",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -4136,6 +7528,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ETTh2.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "81e85502b8dd1df2b15aefa636dc0d4c",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96ETTm1_w1501_prollcov.csv",
         "model": "Crossformer",
         "des": "Exp",
@@ -4144,6 +7642,112 @@
             "name": "ETTm1",
             "root_path": "./dataset/ETT-small/ETTm1/",
             "data_path": "ETTm1_w1501_prollcov.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "720_96ETTm1.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "aef90f6cae3ee4313cc81a152b1edad9",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -4348,6 +7952,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ETTm2.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "07df62e71dabf8a4585f66ca0fab8253",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96Weather_w1501_iprollcov.csv",
         "model": "Crossformer",
         "des": "Exp",
@@ -4356,6 +8066,112 @@
             "name": "Weather",
             "root_path": "./dataset/weather/Weather/",
             "data_path": "Weather_w1501_iprollcov.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "720_96Weather.csv",
+        "model": "Crossformer",
+        "des": "Exp",
+        "experiment_id": "b6c5de14199bf43b4898a22fd6cec190",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -4560,6 +8376,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96ETTh2.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "7f496308e7fb9d2d492bbb6b559ec266",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "192_96ETTm1_w1251_ipfarm.csv",
         "model": "Autoformer",
         "des": "Exp",
@@ -4568,6 +8490,112 @@
             "name": "ETTm1",
             "root_path": "./dataset/ETT-small/ETTm1/",
             "data_path": "ETTm1_w1251_ipfarm.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "192_96ETTm1.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "d2eb61b9d1296eb8230e8f59c1e9195f",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -4772,6 +8800,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96ETTm2.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "11e9543e745df3930c9a741edfd9ef17",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "192_96ECL_w501_ipfarm.csv",
         "model": "Autoformer",
         "des": "Exp",
@@ -4780,6 +8914,112 @@
             "name": "ECL",
             "root_path": "./dataset/electricity/ECL/",
             "data_path": "ECL_w501_ipfarm.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 321,
+            "dec_in": 321,
+            "c_out": 321,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "192_96ECL.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "6fda9d590add22de0fe54ee37b4ba3d7",
+        "data": {
+            "name": "ECL",
+            "root_path": "./dataset/electricity/ECL/",
+            "data_path": "ECL.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -4984,6 +9224,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "192_96Weather.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "a540479a2059fba2b3a6920f586c7d90",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 192,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96ETTh2_w1251_iprollcov.csv",
         "model": "Autoformer",
         "des": "Exp",
@@ -4992,6 +9338,112 @@
             "name": "ETTh2",
             "root_path": "./dataset/ETT-small/ETTh2/",
             "data_path": "ETTh2_w1251_iprollcov.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96ETTh2.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "fc3df2a44f798e0059c20739edbaf377",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -5196,6 +9648,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "336_96ETTm1.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "b421ca7966eee4cdb183be86198edbde",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96ETTm2_w751_iprollcov.csv",
         "model": "Autoformer",
         "des": "Exp",
@@ -5204,6 +9762,112 @@
             "name": "ETTm2",
             "root_path": "./dataset/ETT-small/ETTm2/",
             "data_path": "ETTm2_w751_iprollcov.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96ETTm2.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "a9eef7ac9e04a1ff4e2230eab0a66141",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -5408,6 +10072,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "336_96ECL.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "12a8d1bd6df1a43d0b253aa9a29982ee",
+        "data": {
+            "name": "ECL",
+            "root_path": "./dataset/electricity/ECL/",
+            "data_path": "ECL.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 321,
+            "dec_in": 321,
+            "c_out": 321,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "336_96Weather_w1001_prollcorr.csv",
         "model": "Autoformer",
         "des": "Exp",
@@ -5416,6 +10186,112 @@
             "name": "Weather",
             "root_path": "./dataset/weather/Weather/",
             "data_path": "Weather_w1001_prollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 336,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "336_96Weather.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "5e76ad5aba6a96bb9795b32ad0203054",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -5620,6 +10496,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ETTh2.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "6451975259dd8171c05a2cf0438826bb",
+        "data": {
+            "name": "ETTh2",
+            "root_path": "./dataset/ETT-small/ETTh2/",
+            "data_path": "ETTh2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96ETTm1_w1251_ipfarm.csv",
         "model": "Autoformer",
         "des": "Exp",
@@ -5628,6 +10610,112 @@
             "name": "ETTm1",
             "root_path": "./dataset/ETT-small/ETTm1/",
             "data_path": "ETTm1_w1251_ipfarm.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "720_96ETTm1.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "c8820ebebd461a18b2757503cf5c1f79",
+        "data": {
+            "name": "ETTm1",
+            "root_path": "./dataset/ETT-small/ETTm1/",
+            "data_path": "ETTm1.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",
@@ -5832,6 +10920,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ETTm2.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "acf8678d1f23838b5bf9428cbba13d1d",
+        "data": {
+            "name": "ETTm2",
+            "root_path": "./dataset/ETT-small/ETTm2/",
+            "data_path": "ETTm2.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 7,
+            "dec_in": 7,
+            "c_out": 7,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 1,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96ECL_w501_ipfarm.csv",
         "model": "Autoformer",
         "des": "Exp",
@@ -5938,6 +11132,112 @@
     {
         "task_name": "long_term_forecast",
         "is_training": 1,
+        "model_id": "720_96ECL.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "d443e8c85fee6b2c7f2581c380bf6532",
+        "data": {
+            "name": "ECL",
+            "root_path": "./dataset/electricity/ECL/",
+            "data_path": "ECL.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 321,
+            "dec_in": 321,
+            "c_out": 321,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
         "model_id": "720_96Weather_w1001_prollcorr.csv",
         "model": "Autoformer",
         "des": "Exp",
@@ -5946,6 +11246,112 @@
             "name": "Weather",
             "root_path": "./dataset/weather/Weather/",
             "data_path": "Weather_w1001_prollcorr.csv",
+            "features": "MS",
+            "target": "OT",
+            "freq": "h",
+            "checkpoints": "./checkpoints/",
+            "seasonal_patterns": "Monthly"
+        },
+        "forecast": {
+            "seq_len": 96,
+            "label_len": 48,
+            "pred_len": 720,
+            "inverse": false
+        },
+        "imputation": {
+            "mask_rate": 0.25
+        },
+        "anomaly_detection": {
+            "anomaly_ratio": 0.25
+        },
+        "model_params": {
+            "expand": 2,
+            "d_conv": 4,
+            "top_k": 5,
+            "num_kernels": 6,
+            "enc_in": 21,
+            "dec_in": 21,
+            "c_out": 21,
+            "d_model": 512,
+            "n_heads": 8,
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_ff": 2048,
+            "moving_avg": 25,
+            "factor": 3,
+            "distil": true,
+            "dropout": 0.1,
+            "embed": "timeF",
+            "activation": "gelu",
+            "channel_independence": 1,
+            "decomp_method": "moving_avg",
+            "use_norm": 1,
+            "down_sampling_layers": 0,
+            "down_sampling_window": 1,
+            "down_sampling_method": null,
+            "seg_len": 96,
+            "patch_len": 16
+        },
+        "optimization": {
+            "num_workers": 10,
+            "itr": 1,
+            "train_epochs": 10,
+            "batch_size": 32,
+            "patience": 3,
+            "learning_rate": 0.0001,
+            "loss": "MSE",
+            "lradj": "type1",
+            "use_amp": false
+        },
+        "gpu": {
+            "use_gpu": true,
+            "gpu": 0,
+            "gpu_type": "cuda",
+            "use_multi_gpu": false,
+            "devices": "0,1,2,3"
+        },
+        "projector": {
+            "p_hidden_dims": [
+                128,
+                128
+            ],
+            "p_hidden_layers": 2
+        },
+        "metrics": {
+            "use_dtw": false
+        },
+        "augmentation": {
+            "augmentation_ratio": 0,
+            "seed": 2,
+            "jitter": false,
+            "scaling": false,
+            "permutation": false,
+            "randompermutation": false,
+            "magwarp": false,
+            "timewarp": false,
+            "windowslice": false,
+            "windowwarp": false,
+            "rotation": false,
+            "spawner": false,
+            "dtwwarp": false,
+            "shapedtwwarp": false,
+            "wdba": false,
+            "discdtw": false,
+            "discsdtw": false,
+            "extra_tag": ""
+        }
+    },
+    {
+        "task_name": "long_term_forecast",
+        "is_training": 1,
+        "model_id": "720_96Weather.csv",
+        "model": "Autoformer",
+        "des": "Exp",
+        "experiment_id": "4f8241112cdb2e2f915000ec47593ed5",
+        "data": {
+            "name": "Weather",
+            "root_path": "./dataset/weather/Weather/",
+            "data_path": "Weather.csv",
             "features": "MS",
             "target": "OT",
             "freq": "h",

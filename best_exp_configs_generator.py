@@ -56,23 +56,41 @@ for model in models:
                         best_file_path += '.csv'
                     print(f"{best_file_path}")
                     print(f"{best_file_path in csv_files}")
+
+                    identity_dataset_file_path = f"{dataset_name}.csv"
                     if best_file_path in [csv_file.split("/")[-1] for csv_file in csv_files]: # ABLATION FOR SHAPED DATASETS
                         
                         config_copy = copy.deepcopy(config)
+
+                        config_identity = copy.deepcopy(config)
+
                         full_relative_path = dataset_root_path
                         file_name = os.path.basename(best_file_path)
+                        identity_file_name = os.path.basename(identity_dataset_file_path)
                     
                         config_copy.data.root_path = full_relative_path
                         config_copy.data.data_path = file_name
                         config_copy.model_id = f"{pred_len}_96{file_name}"
 
+                        config_identity.data.root_path = full_relative_path
+                        config_identity.data.data_path = identity_file_name
+                        config_identity.model_id = f"{pred_len}_96{identity_file_name}"
+
                         config_copy.data.features = "MS"
+                        config_identity.data.features = "MS"
 
                         config_hash = compute_config_hash(config_copy) # ensuring non duplicates
                         config_copy.experiment_id = config_hash
+
+                        identity_config_hash = compute_config_hash(config_identity) # ensuring non duplicates
+                        config_identity.experiment_id = identity_config_hash
+
                         if config_hash not in list_of_config_hashes:
                             list_of_configs += [config_copy]
                             list_of_config_hashes += [config_hash]
+
+                            list_of_configs += [config_identity]
+                            list_of_config_hashes += [identity_config_hash]                            
                 
 print(f"base_configs_count = {base_configs_count}")
 

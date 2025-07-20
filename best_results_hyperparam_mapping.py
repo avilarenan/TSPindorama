@@ -30,7 +30,13 @@ def get_best_hyperparam_mapping():
         dataset = row["dataset"]
         model = row["model_name"]
         pconstructor = row["pconstructor"]
-        pwindow = int(row["pwindow"])
+        
+        try:
+            pwindow = int(row["pwindow"])
+        except Exception as e:
+            print(row)
+            print(e)
+            continue
 
         if dataset not in constructor_window_mapping:
             constructor_window_mapping[dataset] = {}
