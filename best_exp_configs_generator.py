@@ -36,7 +36,7 @@ base_configs_count = 0
 for model in models:
     for pred_len in prediction_lengths:
         for dataset_name, dataset_root_path in datasets_path_mapping.items(): # ABLATION FOR BASE DATASETS
-            print(f"dataset_name = {dataset_name}, model = {model}, pred_len = {pred_len}")
+            # print(f"dataset_name = {dataset_name}, model = {model}, pred_len = {pred_len}")
             csv_files = glob.glob(os.path.join(dataset_root_path, '*.csv'))
             # print(f"csv_files = {csv_files}")
             for config in base_configs: # SEARCHING MODELS AND PREDICTION LENGTHS IN BASE CONFIGS
@@ -54,10 +54,14 @@ for model in models:
                     best_file_path = f"{dataset_name}_w{pwindow}_{pconstructor}"
                     if not best_file_path.endswith('.csv'):
                         best_file_path += '.csv'
-                    print(f"{best_file_path}")
-                    print(f"{best_file_path in csv_files}")
+                    # print(f"{best_file_path}")
+                    # print(f"{best_file_path in csv_files}")
 
                     identity_dataset_file_path = f"{dataset_name}.csv"
+
+                    if best_file_path not in [csv_file.split("/")[-1] for csv_file in csv_files]:
+                        print(f"best_file_path = {best_file_path} | model = {model} | pred_len = {pred_len} | dataset_name = {dataset_name} | dataset_root_path = {dataset_root_path}")
+                    
                     if best_file_path in [csv_file.split("/")[-1] for csv_file in csv_files]: # ABLATION FOR SHAPED DATASETS
                         
                         config_copy = copy.deepcopy(config)

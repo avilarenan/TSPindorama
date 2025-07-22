@@ -25,8 +25,10 @@ def get_results(with_calc_improv=True):
 
             try:
                 split_index = dir_name.index("_w")
+                split_index_last = dir_name.index(".csv")
                 pwindow = int(dir_name[split_index+1:].split("_")[0][1:])
-                pconstructor = dir_name[split_index+1:].split("_")[1]
+                pwindow_str_len = len(f"{pwindow}")
+                pconstructor = dir_name[split_index+3+pwindow_str_len:split_index_last+4]
             except Exception as e:
                 pwindow = None
                 if "duplicated" in dir_name:
@@ -65,9 +67,10 @@ def get_results(with_calc_improv=True):
 
             df["pwindow"] = pwindow
             df["pconstructor"] = pconstructor
-
-            df["dataset"] = dir_name[dir_name.find("96ETTh1")+7: dir_name.find("_ft")].split("_")[-1]
-
+            dataset_name = dir_name[dir_name.find("96ETTh1")+7: dir_name.find("_ft")].split("_")[-1]
+            if dataset_name == "Traffic":
+                dataset_name = "TrafficL"
+            df["dataset"] = dataset_name
             list_of_metrics_dfs += [df]
 
     results_df = pd.concat(list_of_metrics_dfs).sort_values(by="mse", ascending=True)

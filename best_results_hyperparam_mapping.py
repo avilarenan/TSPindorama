@@ -1,6 +1,6 @@
 import pandas as pd
 
-def get_best_hyperparam_mapping():
+def get_best_hyperparam_mapping(file_path="./best_results_summarized.csv" ):
     """
     Reads the best results from a CSV file and constructs a mapping of datasets to models and their best hyperparameters.
     
@@ -18,8 +18,6 @@ def get_best_hyperparam_mapping():
     """
     constructor_window_mapping = {}
     
-    # Load the CSV file
-    file_path = "./best_results_summarized.csv" 
     df = pd.read_csv(file_path)
 
     # Keep only the best configuration (max improvement) per (dataset, model_name)
