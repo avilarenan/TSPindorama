@@ -5,6 +5,8 @@ from models import Autoformer, Transformer, TimesNet, Nonstationary_Transformer,
     Koopa, TiDE, FreTS, TimeMixer, TSMixer, SegRNN, MambaSimple, TemporalFusionTransformer, SCINet, PAttn, TimeXer, \
     WPMixer, MultiPatchFormer, MLP
 
+from data_provider.data_factory import data_provider
+
 
 class Exp_Basic(object):
     def __init__(self, args):
@@ -46,6 +48,14 @@ class Exp_Basic(object):
             from models import Mamba
             self.model_dict['Mamba'] = Mamba
 
+        # Setting/overriding the encoder input size from configs based on the first batch of training data
+        # This adapts to the data dynamically
+        _, train_loader_tmp = data_provider(self.args, flag='train')
+        first_batch = next(iter(train_loader_tmp))
+        batch_x = first_batch[0]  # [B, seq_len, enc_in]
+        self.args.model_params.enc_in = batch_x.shape[2]
+
+        # Move on to building the model
         self.device = self._acquire_device()
         self.model = self._build_model().to(self.device)
 
