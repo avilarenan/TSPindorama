@@ -4,6 +4,10 @@ from data_provider.uea import collate_fn
 from torch.utils.data import DataLoader
 from exp_params import FlatExperimentConfig
 
+import logging
+from log_utils import get_logger, show_ram
+logger = get_logger()
+
 data_dict = {
     'ETTh1': Dataset_ETT_hour,
     'ETTh2': Dataset_ETT_hour,
@@ -24,7 +28,11 @@ data_dict = {
 
 
 def data_provider(args, flag):
-    Data = data_dict[args.data.name]
+    try:
+        Data = data_dict[args.data.name]
+    except KeyError:
+        logger.error(f"Data {args.data.name} not found in data_dict. Proceeding with Dataset_Custom.")
+        Data = Dataset_Custom  # Fallback to a generic dataset
     args = FlatExperimentConfig(args)
     timeenc = 0 if args.embed != 'timeF' else 1
 
