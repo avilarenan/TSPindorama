@@ -26,6 +26,16 @@ datasets_path_mapping = {
     "Weather": "./dataset/weather/Weather/"
 }
 
+datasets_split_mapping = {
+    "ETTh1" : (8545, 2881, 2881),
+    "ETTh2" : (8545, 2881, 2881),
+    "ETTm1" : (34465, 11521, 11521),
+    "ETTm2" : (34465, 11521, 11521),
+    "ECL": (18317, 2633, 5261),
+    "Traffic": (12185, 1757, 3509),
+    "Weather": (36792, 5271, 10540)
+}
+
 def generate_experiment_id() -> str:
     """
     Generate a unique experiment ID using the current date and two random names.
