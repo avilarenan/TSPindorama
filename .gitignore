@@ -170,3 +170,4 @@ environment.txt
 *.code-workspace
 
 nohup.out
+*.log*
