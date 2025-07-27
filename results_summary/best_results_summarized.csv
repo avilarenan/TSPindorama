@@ -2,7 +2,7 @@ model_name,dataset,pred_len,improvement,pconstructor,pwindow,mse,mse_identity
 TimeXer,ECL,96,1.0806298398542313,ipfarm.csv,501,0.26591513,0.26882008
 iTransformer,ECL,96,2.0873905340492853,pmutual_info.csv,1501,0.2729548,0.2787739
 iTransformer,ECL,192,1.3628036658911755,prollcorr.csv,1251,0.31234425,0.3166597
-PatchTST,ECL,96,0.0,pentropy.csv,1501,0.31285042,0.31285042
+PatchTST,ECL,96,0.0,ipentropy.csv,1251,0.31285042,0.31285042
 TimeXer,ECL,192,-0.7220515426547581,ipfarm.csv,501,0.3160145,0.31374907
 Autoformer,ECL,96,12.513328219339106,ipfarm.csv,501,0.32437736,0.37077346
 iTransformer,ECL,336,3.89309450894387,pmutual_info.csv,1501,0.3608486,0.37546584
