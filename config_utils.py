@@ -17,13 +17,13 @@ NAME_LIST = [
 ]
 
 datasets_path_mapping = {
-    "ETTh1" : "./dataset/ETT-small/ETTh1/",
-    "ETTh2" : "./dataset/ETT-small/ETTh2/",
-    "ETTm1" : "./dataset/ETT-small/ETTm1/",
-    "ETTm2" : "./dataset/ETT-small/ETTm2/",
-    "ECL": "./dataset/electricity/ECL/",
-    "Traffic": "./dataset/traffic/Traffic/",
-    "Weather": "./dataset/weather/Weather/"
+    "ETTh1" : "./dataset/ETT-small/ETTh1",
+    "ETTh2" : "./dataset/ETT-small/ETTh2",
+    "ETTm1" : "./dataset/ETT-small/ETTm1",
+    "ETTm2" : "./dataset/ETT-small/ETTm2",
+    "ECL": "./dataset/electricity/ECL",
+    "Traffic": "./dataset/traffic/Traffic",
+    "Weather": "./dataset/weather/Weather"
 }
 
 datasets_split_mapping = {

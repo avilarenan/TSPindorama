@@ -6,8 +6,6 @@ from scipy import stats, interpolate
 import os
 
 def get_results(with_calc_improv=True):
-
-
     list_of_metrics_dfs = []
     directory_path = "./results"
     for root, dirs, files in os.walk(directory_path):
