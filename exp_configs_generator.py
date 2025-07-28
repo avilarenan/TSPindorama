@@ -6,6 +6,10 @@ import copy
 BASE_CONFIGS_FILE = "exp_configs.json"
 OUTPUT_CONFIGS_FILE = "generated_exp_configs.json"
 
+TYPE = "FEATURE_ABLATION" # SHAPING_ABLATION
+
+datasets_map = datasets_path_mapping_feature_ablation if TYPE == "FEATURE_ABLATION" else datasets_path_mapping
+
 base_configs = load_configs_from_yaml(BASE_CONFIGS_FILE)
 
 
@@ -13,7 +17,9 @@ list_of_configs = []
 list_of_config_hashes = []
 # Get a list of all CSV files in the specified folder
 prediction_lengths = [96,] #192, 336, 720]
-models = ["iTransformer", "TimeXer", "PatchTST", "Crossformer", "Autoformer"]
+# models = ["iTransformer", "TimeXer", "PatchTST", "Crossformer", "Autoformer"]
+
+models = ["MLP", "LSTM", "CNN"]
 
 # PatchTST -> does not fit GPU ram for all datasets, even for pred_len 96, problems with Traffic dataset
 
@@ -21,17 +27,17 @@ models = ["iTransformer", "TimeXer", "PatchTST", "Crossformer", "Autoformer"]
 # "Nonstationary_Transformer" -> gpu runs out of memory for all experiments
 
 found = {}
-for dataset_name in datasets_path_mapping.keys():
+for dataset_name in datasets_map.keys():
     for prediction_length in prediction_lengths:
         found[f"{dataset_name}_{prediction_length}"] = []
 
-shaped_datasets_count = {dataset : 0 for dataset in datasets_path_mapping.keys()}
+shaped_datasets_count = {dataset : 0 for dataset in datasets_map.keys()}
 
 base_configs_count = 0
 
 for model in models:
     for pred_len in prediction_lengths:
-        for dataset_name, dataset_root_path in datasets_path_mapping.items(): # ABLATION FOR BASE DATASETS
+        for dataset_name, dataset_root_path in datasets_map.items(): # ABLATION FOR BASE DATASETS
             csv_files = glob.glob(os.path.join(dataset_root_path, '*.csv'))
             for config in base_configs: # SEARCHING MODELS AND PREDICTION LENGTHS IN BASE CONFIGS
                 if config.model == model and config.forecast.pred_len == pred_len and config.data.name == dataset_name: 

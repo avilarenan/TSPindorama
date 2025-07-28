@@ -26,6 +26,10 @@ datasets_path_mapping = {
     "Weather": "./dataset/weather/Weather"
 }
 
+datasets_path_mapping_feature_ablation = {
+    "ETTh1" : "./dataset/ETT-small/ETTh1_powersets",
+}
+
 datasets_split_mapping = {
     "ETTh1" : (8545, 2881, 2881),
     "ETTh2" : (8545, 2881, 2881),
