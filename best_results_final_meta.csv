@@ -1,7 +1,7 @@
 ,,pconstructor,pconstructor,pconstructor,pconstructor,pconstructor,pwindow,pwindow,pwindow,pwindow,pwindow
 model_name,,Autoformer,Crossformer,PatchTST,TimeXer,iTransformer,Autoformer,Crossformer,PatchTST,TimeXer,iTransformer
 dataset,pred_len,,,,,,,,,,
-ECL,96,ipfarm,,pentropy,ipfarm,pmutual_info,501,,1501,501,1501
+ECL,96,ipfarm,,pentropy,ipfarm,pmutual_info,501,,1251,501,1501
 ECL,192,ipfarm,,,ipfarm,prollcorr,501,,,501,1251
 ECL,336,ipfarm,,,ipfarm,pmutual_info,501,,,501,1501
 ECL,720,ipfarm,,,ipfarm,pmutual_info,501,,,501,1501
