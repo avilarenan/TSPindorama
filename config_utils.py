@@ -28,6 +28,8 @@ datasets_path_mapping = {
 
 datasets_path_mapping_feature_ablation = {
     "ETTh1" : "./dataset/ETT-small/ETTh1_powersets",
+    "Energy": "./dataset/energy/Energy_powersets",
+    "Exchange": "./dataset/exchange/EPEX-DE_powersets"
 }
 
 datasets_split_mapping = {
@@ -65,6 +67,8 @@ def load_configs_from_yaml(file_path: str) -> List[ExperimentConfig]:
             model_id=item.get('model_id', 'test'),
             model=item.get('model', 'Autoformer'),
             des=item.get('des', 'test'),
+            results_directory=item.get('results_directory', "./results/"),
+            results_pdf_directory=item.get('results_pdf_directory', "./results_pdfs/"),
             data=DataConfig(**item.get('data', {})),
             forecast=ForecastConfig(**item.get('forecast', {})),
             model_params=ModelConfig(**item.get('model_params', {})),
@@ -91,12 +95,14 @@ def load_configs_from_json(file_path: str) -> List[ExperimentConfig]:
             model_id=item.get('model_id', 'test'),
             model=item.get('model', 'Autoformer'),
             des=item.get('des', 'test'),
+            results_directory=item.get('results_directory', "./results/"),
+            results_pdf_directory=item.get('results_pdf_directory', "./results_pdfs/"),
             data=DataConfig(**item.get('data', {})),
             forecast=ForecastConfig(**item.get('forecast', {})),
             model_params=ModelConfig(**item.get('model_params', {})),
             optimization=OptimizationConfig(**item.get('optimization', {}))
         )
-        configs.append(config)
+        configs.append(config) 
 
     return configs
 

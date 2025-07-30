@@ -17,6 +17,8 @@ data_dict = {
     'ECL': Dataset_Custom,
     'Traffic': Dataset_Custom,
     'Weather': Dataset_Custom,
+    'Exchange': Dataset_Custom,
+    'Energy': Dataset_Custom,
     'm4': Dataset_M4,
     'PSM': PSMSegLoader,
     'MSL': MSLSegLoader,

@@ -183,7 +183,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
         preds = []
         trues = []
-        folder_path = './test_results/' + setting + '/'
+        folder_path = self.args.results_pdf_directory + setting + '/'
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
@@ -238,7 +238,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         trues = trues.reshape(-1, trues.shape[-2], trues.shape[-1])
         logger.info(f"test shape: preds {preds.shape}, shape {trues.shape}")
 
-        folder_path = './results/' + setting + '/'
+        folder_path = self.args.results_directory + setting + '/'
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 

@@ -175,6 +175,8 @@ class ExperimentConfig:
     model: str = 'Autoformer'  # Model name
     des: str = 'test'  # Experiment description
     experiment_id: str = "test" # Experiment unique id
+    results_directory: str = './results/'  # Directory to save prediction results
+    results_pdf_directory: str = './results_pdfs/'  # Directory to save PDF results
 
     data: DataConfig = field(default_factory=DataConfig)
     forecast: ForecastConfig = field(default_factory=ForecastConfig)

@@ -161,7 +161,9 @@ data_loader_all.py
 
 checkpoints/
 results/
+results_pdfs/
 results_feature_ablation/
+results_feature_ablation_pdfs/
 result_long_term_forecast.txt
 result_anomaly_detection.txt
 scripts/augmentation/
