@@ -29,6 +29,9 @@ def get_results(results_directory="./results"):
             features_powerset = dir_name[powerset_split+len(start_split_word)+1:csv_split]
             df["features_powerset"] = f"{features_powerset.split("_")}"
 
+            pred_len = dir_name[:powerset_split].split("_")[3]
+            df["pred_len"] = pred_len
+
             dataset_name = dir_name[dir_name.find("96ETTh1")+7: dir_name.find("_ft")].split("_")[-1]
             if dataset_name == "Traffic":
                 dataset_name = "TrafficL"
@@ -76,7 +79,7 @@ def find_folders_with_include_exclude(root_dir, required_words=None, forbidden_w
     return matching_folders
 
 
-def get_forecast_plot(dataset_name, model, features_of_interest, root_directory, offset_idx=0):
+def get_forecast_plot(dataset_name, model, pred_len, features_of_interest, root_directory, offset_idx=0):
 
     exogenous_features_map = {
         "ETTh1": ["HULL", "HUFL", "LULL", "LUFL", "MULL", "MUFL"],
@@ -86,7 +89,7 @@ def get_forecast_plot(dataset_name, model, features_of_interest, root_directory,
 
     exogenous_features = exogenous_features_map[dataset_name]
     forbidden_words = list(set(exogenous_features) - set(features_of_interest))
-    words_filter = [dataset_name] + [model] + features_of_interest
+    words_filter = [dataset_name] + [model] + features_of_interest + [f"_{pred_len}_"]
 
     matched_folders = find_folders_with_include_exclude(root_directory, required_words=words_filter, forbidden_words=forbidden_words)
 

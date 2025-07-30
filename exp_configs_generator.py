@@ -10,7 +10,7 @@ TYPE = "FEATURE_ABLATION" # SHAPING_ABLATION
 
 datasets_map = datasets_path_mapping_feature_ablation if TYPE == "FEATURE_ABLATION" else datasets_path_mapping
 
-base_configs = load_configs_from_yaml(BASE_CONFIGS_FILE)
+base_configs = load_configs_from_json(BASE_CONFIGS_FILE)
 
 
 list_of_configs = []
