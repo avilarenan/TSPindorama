@@ -27,11 +27,8 @@ class Model(nn.Module):
         self.output_dim = output_dim
         self.pred_len = pred_len
 
-    def forward(self, x_enc, x_mark_enc=None, x_dec=None, x_mark_dec=None):
-        # x_enc: [B, seq_len, input_dim]
-        out, _ = self.lstm(x_enc)  # [B, seq_len, hidden_size]
-        # Use the last hidden state for prediction and repeat for pred_len
-        last_hidden = out[:, -1, :]  # [B, hidden_size]
-        repeated = last_hidden.unsqueeze(1).repeat(1, self.pred_len, 1)  # [B, pred_len, hidden_size]
-        output = self.fc(repeated)  # [B, pred_len, output_dim]
-        return output
+    def forward(self, x):  # x: [B, seq_len, input_size]
+        output, (h_n, _) = self.lstm(x)  # h_n: [num_layers, B, hidden_size]
+        last_hidden = h_n[-1]            # [B, hidden_size] -> last layer's final hidden state
+        out = self.linear(last_hidden)   # [B, pred_len]
+        return out.unsqueeze(-1)         # [B, pred_len, 1] for single-variate output

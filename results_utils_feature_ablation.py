@@ -83,8 +83,8 @@ def get_forecast_plot(dataset_name, model, pred_len, features_of_interest, root_
 
     exogenous_features_map = {
         "ETTh1": ["HULL", "HUFL", "LULL", "LUFL", "MULL", "MUFL"],
-        "EPEX-DE": [],
-        "EnergyLoad": []
+        "EPEX-DE": ["AmpirionLoadForecast", "PVWindForecast"],
+        "Energy": ["luxeastlx", "luxwestlx", "luxsouthlx", "tinwallc", "toutc"]
     }
 
     exogenous_features = exogenous_features_map[dataset_name]
@@ -108,8 +108,6 @@ def get_forecast_plot(dataset_name, model, pred_len, features_of_interest, root_
     data_true = np.load(f'{root_directory}/{root_path}/true.npy')
     data_true = data_true.squeeze()
     df_true = pd.DataFrame(data_true)
-
-    offset_idx = 0
 
     # FORECAST PLOT
     ts_true = df_true.iloc[offset_idx]

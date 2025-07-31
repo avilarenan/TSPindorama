@@ -19,7 +19,7 @@ list_of_config_hashes = []
 prediction_lengths = [96, 192, 336, 720]
 # models = ["iTransformer", "TimeXer", "PatchTST", "Crossformer", "Autoformer"]
 
-models = ["MLP", "LSTM", "CNN", "Transformer"]
+models = ["MLP", "CNN", "Transformer"] # "LSTM", - LSTM lacks hyperparameter tuning
 
 # PatchTST -> does not fit GPU ram for all datasets, even for pred_len 96, problems with Traffic dataset
 
