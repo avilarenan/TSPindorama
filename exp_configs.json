@@ -172,7 +172,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -712,7 +712,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -1144,7 +1144,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -1468,7 +1468,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -2007,8 +2007,8 @@
             "itr": 1,
             "train_epochs": 10,
             "batch_size": 32,
-            "patience": 3,
-            "learning_rate": 0.0001,
+            "patience": 5,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -2440,7 +2440,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -2764,7 +2764,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -3304,7 +3304,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -3736,7 +3736,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -4060,7 +4060,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -4600,7 +4600,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
@@ -5032,7 +5032,7 @@
             "train_epochs": 10,
             "batch_size": 32,
             "patience": 3,
-            "learning_rate": 0.0001,
+            "learning_rate": 0.001,
             "loss": "MSE",
             "lradj": "type1",
             "use_amp": false
