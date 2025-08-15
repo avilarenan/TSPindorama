@@ -6,7 +6,7 @@ import copy
 BASE_CONFIGS_FILE = "exp_configs.json"
 OUTPUT_CONFIGS_FILE = "generated_exp_configs.json"
 
-TYPE = "FEATURE_ABLATION" # SHAPING_ABLATION
+TYPE = "SHAPING_ABLATION" # SHAPING_ABLATION | FEATURE_ABLATION
 
 datasets_map = datasets_path_mapping_feature_ablation if TYPE == "FEATURE_ABLATION" else datasets_path_mapping
 
@@ -15,18 +15,23 @@ base_configs = load_configs_from_json(BASE_CONFIGS_FILE)
 list_of_configs = []
 list_of_config_hashes = []
 # Get a list of all CSV files in the specified folder
-prediction_lengths = [96, 192, 336, 720]
+prediction_lengths = [
+    96,
+    # 192,
+    # 336,
+    # 720
+]
 # models = ["iTransformer", "TimeXer", "PatchTST", "Crossformer", "Autoformer"]
 
 models = [
-    # "MLP",
-    "LSTM", # LSTM lacks hyperparameter tuning
+    "MLP",
+    # "LSTM", # LSTM lacks hyperparameter tuning
     # "CNN",
     # "Transformer"
-] 
+]
 
+# NOTE: problems when running experiments
 # PatchTST -> does not fit GPU ram for all datasets, even for pred_len 96, problems with Traffic dataset
-
 # "TimesNet" -> PROBLEM: gpu gradually scale up to crash
 # "Nonstationary_Transformer" -> gpu runs out of memory for all experiments
 

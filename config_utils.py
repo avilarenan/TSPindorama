@@ -18,12 +18,12 @@ NAME_LIST = [
 
 datasets_path_mapping = {
     "ETTh1" : "./dataset/ETT-small/ETTh1",
-    "ETTh2" : "./dataset/ETT-small/ETTh2",
-    "ETTm1" : "./dataset/ETT-small/ETTm1",
-    "ETTm2" : "./dataset/ETT-small/ETTm2",
-    "ECL": "./dataset/electricity/ECL",
-    "Traffic": "./dataset/traffic/Traffic",
-    "Weather": "./dataset/weather/Weather"
+    # "ETTh2" : "./dataset/ETT-small/ETTh2",
+    # "ETTm1" : "./dataset/ETT-small/ETTm1",
+    # "ETTm2" : "./dataset/ETT-small/ETTm2",
+    # "ECL": "./dataset/electricity/ECL",
+    # "Traffic": "./dataset/traffic/Traffic",
+    # "Weather": "./dataset/weather/Weather"
 }
 
 datasets_path_mapping_feature_ablation = {
@@ -84,8 +84,17 @@ def load_configs_from_json(file_path: str) -> List[ExperimentConfig]:
     """
     from dataclasses import asdict
 
+    if not os.path.exists(file_path):
+        # create empty file if it does not exist
+        with open(file_path, 'w') as f:
+            json.dump({}, f)
+
     with open(file_path, 'r') as f:
-        data = json.load(f)
+        try:
+            data = json.load(f)
+        except json.JSONDecodeError:
+            # Move on with an empty dict if the file is empty or malformed
+            data = {}
 
     configs = []
     for item in data:

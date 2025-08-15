@@ -30,6 +30,10 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
         if self.args.gpu.use_multi_gpu and self.args.gpu.use_gpu:
             model = nn.DataParallel(model, device_ids=self.args.device_ids)
+
+        if self.args.wrapper == 'CATSWrapper':
+            from model_wrappers.CATSWrapper import CATSWrapper, ATSConstructor
+            model = CATSWrapper(model, orig_dim=self.args.model_params.enc_in, ats_dim=4)
         return model
 
     def _get_data(self, flag):
