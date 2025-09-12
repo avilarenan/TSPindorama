@@ -6,7 +6,7 @@ from scipy import stats, interpolate
 import os
 
 pd.options.plotting.backend = "plotly"
-from config_utils import datasets_path_mapping, datasets_split_mapping
+from config_utils import datasets_path_mapping, datasets_split_mapping, datasets_plot_path_mapping
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 def get_results(with_calc_improv=True, results_directory="./results"):
@@ -497,8 +497,8 @@ def get_forecast_shape_morphing_plot(
     dataset_file_name = f"{dataset_modified_name}_w{pwindow}_{pconstructor}.csv"
     dataset_file_name_identity = f"{dataset_modified_name}.csv"
 
-    dataset_full_path = f"{datasets_path_mapping[dataset]}/{dataset_file_name}"
-    dataset_full_path_identity = f"{datasets_path_mapping[dataset]}/{dataset_file_name_identity}"
+    dataset_full_path = f"{datasets_plot_path_mapping[dataset]}/{dataset_file_name}"
+    dataset_full_path_identity = f"{datasets_plot_path_mapping[dataset]}/{dataset_file_name_identity}"
 
     df_dataset = pd.read_csv(dataset_full_path)
     df_dataset = df_dataset.set_index("date")

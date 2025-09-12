@@ -17,13 +17,23 @@ NAME_LIST = [
 ]
 
 datasets_path_mapping = {
-    # "ETTh1" : "./dataset/ETT-small/ETTh1",
+    "ETTh1" : "./dataset/ETT-small/ETTh1",
     "ETTh2" : "./dataset/ETT-small/ETTh2",
     "ETTm1" : "./dataset/ETT-small/ETTm1",
     "ETTm2" : "./dataset/ETT-small/ETTm2",
     "ECL": "./dataset/electricity/ECL",
     "Traffic": "./dataset/traffic/Traffic",
     "Weather": "./dataset/weather/Weather"
+}
+
+datasets_plot_path_mapping = {
+    "ETTh1" : "./dataset_main/ETT-small/ETTh1",
+    "ETTh2" : "./dataset_main/ETT-small/ETTh2",
+    "ETTm1" : "./dataset_main/ETT-small/ETTm1",
+    "ETTm2" : "./dataset_main/ETT-small/ETTm2",
+    "ECL": "./dataset_main/electricity/ECL",
+    "Traffic": "./dataset_main/traffic/Traffic",
+    "Weather": "./dataset_main/weather/Weather"
 }
 
 datasets_path_mapping_feature_ablation = {
