@@ -177,7 +177,7 @@ class ExperimentConfig:
     experiment_id: str = "test" # Experiment unique id
     results_directory: str = './results/'  # Directory to save prediction results
     results_pdf_directory: str = './results_pdfs/'  # Directory to save PDF results
-    wrapper: str = 'CATSWrapper'  # Model wrapper class name
+    wrapper: str = 'None'  # Model wrapper class name (allowed values: None, CATSWrapper)
 
     data: DataConfig = field(default_factory=DataConfig)
     forecast: ForecastConfig = field(default_factory=ForecastConfig)

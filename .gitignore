@@ -147,6 +147,7 @@ dmypy.json
 
 /scripts/long_term_forecast/ETT_tv_script/
 /dataset/
+/dataset_main/
 /data/
 data_factory_all.py
 data_loader_all.py
@@ -165,6 +166,7 @@ results_pdfs/
 results_feature_ablation/
 results_feature_ablation_pdfs/
 results_shaping_ablation/
+results_shaping_ablation_pdfs/
 result_long_term_forecast.txt
 result_anomaly_detection.txt
 scripts/augmentation/

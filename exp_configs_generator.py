@@ -21,13 +21,17 @@ prediction_lengths = [
     # 336,
     # 720
 ]
-# models = ["iTransformer", "TimeXer", "PatchTST", "Crossformer", "Autoformer"]
 
 models = [
-    "MLP",
+    # "MLP",
     # "LSTM", # LSTM lacks hyperparameter tuning
     # "CNN",
-    # "Transformer"
+    # "Transformer",
+    "iTransformer",
+    "TimeXer",
+    "PatchTST",
+    "Crossformer",
+    "Autoformer"
 ]
 
 # NOTE: problems when running experiments

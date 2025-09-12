@@ -239,6 +239,9 @@ class Dataset_Custom(Dataset):
         df_raw = pd.read_csv(os.path.join(self.root_path,
                                           self.data_path))
 
+        print("FROM RAW")
+        print(df_raw)
+
         '''
         df_raw.columns: ['date', ...(other features), target feature]
         '''
@@ -279,6 +282,8 @@ class Dataset_Custom(Dataset):
             data_stamp = time_features(pd.to_datetime(df_stamp['date'].values), freq=self.freq)
             data_stamp = data_stamp.transpose(1, 0)
 
+        print("BEFORE SETTING DATA_X AND DATA_Y")
+        print(data)
         self.data_x = data[border1:border2]
         self.data_y = data[border1:border2]
 
