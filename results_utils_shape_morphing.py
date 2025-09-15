@@ -475,6 +475,31 @@ def get_forecast_shape_morphing_plot(
     test_end_index = datasets_split_mapping[dataset][0] + datasets_split_mapping[dataset][1] - 1  + datasets_split_mapping[dataset][2] - 1 + seq_len - 1
 
 
+    if offset_idx is None:
+        # choose the offset index with maximum mse gain when comparing original to shaped exogenous
+        max_mse_gain_offset_index = None
+        max_mse_gain_value = None
+        for i in range(len(df_true)-pred_len):
+            ts_true = df_true.iloc[i]
+            ts_pred = df_pred.iloc[i]
+            ts_true_identity = df_true_identity.iloc[i]
+            ts_pred_identity = df_pred_identity.iloc[i]
+
+            mse_shaped = np.mean(np.square(ts_pred - ts_true))
+            mse_identity = np.mean(np.square(ts_pred_identity - ts_true_identity))
+
+            mse_gain = mse_shaped / mse_identity
+
+            if max_mse_gain_value is None:
+                max_mse_gain_value = mse_gain
+                max_mse_gain_offset_index = i
+            else:
+                if max_mse_gain_value > mse_gain:
+                    max_mse_gain_value = mse_gain
+                    max_mse_gain_offset_index = i
+
+    offset_idx = max_mse_gain_offset_index
+
     # FORECAST PLOT
     ts_true = df_true.iloc[offset_idx]
     ts_pred = df_pred.iloc[offset_idx]
@@ -483,8 +508,8 @@ def get_forecast_shape_morphing_plot(
     ts_pred_identity = df_pred_identity.iloc[offset_idx]
 
     forecast_plot = pd.DataFrame({
-        "true": ts_true,
-        "pred": ts_pred,
+        "true_shaped": ts_true,
+        "pred_shaped": ts_pred,
         "true_identity": ts_true_identity,
         "pred_identity": ts_pred_identity,
     })
@@ -549,6 +574,6 @@ def get_forecast_shape_morphing_plot(
 
 
     # RETURN PLOTS
-    return forecast_plot, dataset_plot, joint_plot
+    return forecast_plot, dataset_plot, joint_plot, offset_idx
 
     
