@@ -494,7 +494,7 @@ def get_forecast_shape_morphing_plot(
                 max_mse_gain_value = mse_gain
                 max_mse_gain_offset_index = i
             else:
-                if max_mse_gain_value > mse_gain:
+                if max_mse_gain_value >= mse_gain:
                     max_mse_gain_value = mse_gain
                     max_mse_gain_offset_index = i
 
