@@ -8,6 +8,8 @@ OUTPUT_CONFIGS_FILE = "generated_exp_configs.json"
 
 TYPE = "SHAPING_ABLATION" # SHAPING_ABLATION | FEATURE_ABLATION
 
+RUN_LINEAR_MODELS = True
+
 datasets_map = datasets_path_mapping_feature_ablation if TYPE == "FEATURE_ABLATION" else datasets_path_mapping
 
 base_configs = load_configs_from_json(BASE_CONFIGS_FILE)
@@ -17,9 +19,9 @@ list_of_config_hashes = []
 # Get a list of all CSV files in the specified folder
 prediction_lengths = [
     96,
-    # 192,
-    # 336,
-    # 720
+    192,
+    336,
+    720
 ]
 
 models = [
@@ -27,12 +29,17 @@ models = [
     # "LSTM", # LSTM lacks hyperparameter tuning
     # "CNN",
     # "Transformer",
-    "iTransformer",
-    "TimeXer",
-    "PatchTST",
-    "Crossformer",
-    "Autoformer"
+    # "iTransformer",
+    # "TimeXer",
+    # "PatchTST",
+    # "Crossformer",
+    # "Autoformer",
 ]
+
+linear_models = ["DLinear"]
+
+if RUN_LINEAR_MODELS:
+    models += linear_models
 
 # NOTE: problems when running experiments
 # PatchTST -> does not fit GPU ram for all datasets, even for pred_len 96, problems with Traffic dataset
